@@ -1,0 +1,1270 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "name": "Admin User",
+      "email": "admin@barclayssportshub.com",
+      "password": "admin123",
+      "role": "admin",
+      "isBlock": false,
+      "cart": [],
+      "orders": [],
+      "wishlist": [],
+      "created_at": "2023-11-15"
+    },
+    {
+      "id": "5d49",
+      "name": "Muhammed Anas",
+      "email": "muhammmedanas247474@gmail.com",
+      "password": "12345678",
+      "role": "user"
+    },
+    {
+      "id": "336b",
+      "name": "diyan",
+      "email": "diyan@gmail.com",
+      "password": "1234",
+      "role": "user"
+    },
+    {
+      "id": "9218",
+      "name": "Anas",
+      "email": "muhammedanas247474@gmail.com",
+      "password": "123456789",
+      "role": "admin"
+    },
+    {
+      "id": "198d10a33d9",
+      "name": "aimen",
+      "email": "aimen@gmail.com",
+      "password": "12345",
+      "role": "user",
+      "isBlock": false,
+      "cart": [],
+      "orders": [],
+      "wishlist": [],
+      "created_at": "2025-08-22T09:09:23.545Z"
+    }
+  ],
+  "products": [
+    {
+      "_id": "aaaaa",
+      "name": "Women Round Neck Cotton Top",
+      "description": "A lightweight cotton top",
+      "price": 100,
+      "image": [
+        "./Images/products/p_img1.png"
+      ],
+      "category": "Women",
+      "subCategory": "Topwear",
+      "sizes": [
+        "S",
+        "M",
+        "L"
+      ],
+      "date": 20230815,
+      "bestseller": true,
+      "id": "f2f8"
+    },
+    {
+      "_id": "aaaab",
+      "name": "Men Round Neck Pure Cotton T-shirt",
+      "description": "Comfortable cotton t-shirt",
+      "price": 200,
+      "image": [
+        "./Images/products/p_img14.png",
+        "./Images/products/men_tshirt1_2.png",
+        "./images/products/men_tshirt1_3.png",
+        "./images/products/men_tshirt1_4.png"
+      ],
+      "category": "Men",
+      "subCategory": "Topwear",
+      "sizes": [
+        "M",
+        "L",
+        "XL"
+      ],
+      "date": 20230814,
+      "bestseller": true,
+      "id": "7bb3"
+    },
+    {
+      "_id": "aaaac",
+      "name": "Girls Round Neck Cotton Top",
+      "description": "Cute cotton top for girls",
+      "price": 220,
+      "image": [
+        "./Images/products/p_img1.png"
+      ],
+      "category": "Kids",
+      "subCategory": "Topwear",
+      "sizes": [
+        "S",
+        "L",
+        "XL"
+      ],
+      "date": 20230813,
+      "bestseller": true,
+      "id": "7beb"
+    },
+    {
+      "_id": "aaaad",
+      "name": "Men Round Neck Pure Cotton T-shirt",
+      "description": "Classic fit cotton t-shirt",
+      "price": 110,
+      "image": [
+        "./Images/products/p_img12.png"
+      ],
+      "category": "Men",
+      "subCategory": "Topwear",
+      "sizes": [
+        "S",
+        "M",
+        "XXL"
+      ],
+      "date": 20230812,
+      "bestseller": true,
+      "id": "0f1e"
+    },
+    {
+      "_id": "aaaae",
+      "name": "Women Round Neck Cotton Top",
+      "description": "Soft cotton women's top",
+      "price": 130,
+      "image": [
+        "./Images/products/p_img1.png"
+      ],
+      "category": "Women",
+      "subCategory": "Topwear",
+      "sizes": [
+        "M",
+        "L",
+        "XL"
+      ],
+      "date": 20230811,
+      "bestseller": true,
+      "id": "e2e3"
+    },
+    {
+      "_id": "aaaaf",
+      "name": "Girls Round Neck Cotton Top",
+      "description": "Casual girls cotton top",
+      "price": 140,
+      "image": [
+        "./Images/products/p_img14.png"
+      ],
+      "category": "Kids",
+      "subCategory": "Topwear",
+      "sizes": [
+        "S",
+        "L",
+        "XL"
+      ],
+      "date": 20230810,
+      "bestseller": true,
+      "id": "5843"
+    },
+    {
+      "_id": "aaaag",
+      "name": "Men Tapered Fit Flat-Front Trousers",
+      "description": "Slim fit tapered trousers",
+      "price": 190,
+      "image": [
+        "./Images/products/p_img10.png"
+      ],
+      "category": "Men",
+      "subCategory": "Bottomwear",
+      "sizes": [
+        "S",
+        "L",
+        "XL"
+      ],
+      "date": 20230809,
+      "bestseller": false,
+      "id": "3baf"
+    },
+    {
+      "_id": "aaaah",
+      "name": "Men Round Neck Pure Cotton T-shirt",
+      "description": "Basic cotton t-shirt",
+      "price": 140,
+      "image": [
+        "/images/products/men_tshirt3.png"
+      ],
+      "category": "Men",
+      "subCategory": "Topwear",
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "date": 20230808,
+      "bestseller": false,
+      "id": "0ab4"
+    },
+    {
+      "_id": "aaaai",
+      "name": "Girls Round Neck Cotton Top",
+      "description": "Girls' everyday cotton top",
+      "price": 100,
+      "image": [
+        "/images/products/kids_girlstop3.png"
+      ],
+      "category": "Kids",
+      "subCategory": "Topwear",
+      "sizes": [
+        "M",
+        "L",
+        "XL"
+      ],
+      "date": 20230807,
+      "bestseller": false,
+      "id": "2ff2"
+    },
+    {
+      "_id": "aaaaj",
+      "name": "Men Tapered Fit Flat-Front Trousers",
+      "description": "Comfortable tapered trousers",
+      "price": 110,
+      "image": [
+        "/images/products/men_trousers2.png"
+      ],
+      "category": "Men",
+      "subCategory": "Bottomwear",
+      "sizes": [
+        "S",
+        "L",
+        "XL"
+      ],
+      "date": 20230806,
+      "bestseller": false,
+      "id": "af76"
+    },
+    {
+      "_id": "aaaak",
+      "name": "Men Round Neck Pure Cotton T-shirt",
+      "description": "Essential cotton t-shirt",
+      "price": 120,
+      "image": [
+        "/images/products/men_tshirt4.png"
+      ],
+      "category": "Men",
+      "subCategory": "Topwear",
+      "sizes": [
+        "S",
+        "M",
+        "L"
+      ],
+      "date": 20230805,
+      "bestseller": false,
+      "id": "aff4"
+    },
+    {
+      "_id": "aaaal",
+      "name": "Men Round Neck Pure Cotton T-shirt",
+      "description": "Premium cotton t-shirt",
+      "price": 150,
+      "image": [
+        "/images/products/men_tshirt5.png"
+      ],
+      "category": "Men",
+      "subCategory": "Topwear",
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "date": 20230804,
+      "bestseller": false,
+      "id": "9538"
+    },
+    {
+      "_id": "aaaam",
+      "name": "Women Round Neck Cotton Top",
+      "description": "Stylish women's cotton top",
+      "price": 130,
+      "image": [
+        "/images/products/women_top3.png"
+      ],
+      "category": "Women",
+      "subCategory": "Topwear",
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "date": 20230803,
+      "bestseller": false,
+      "id": "c5c4"
+    },
+    {
+      "_id": "aaaan",
+      "name": "Boy Round Neck Pure Cotton T-shirt",
+      "description": "Boys' comfortable t-shirt",
+      "price": 160,
+      "image": [
+        "/images/products/kids_boystop1.png"
+      ],
+      "category": "Kids",
+      "subCategory": "Topwear",
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "date": 20230802,
+      "bestseller": false,
+      "id": "24d2"
+    },
+    {
+      "_id": "aaaao",
+      "name": "Men Tapered Fit Flat-Front Trousers",
+      "description": "Modern fit trousers",
+      "price": 140,
+      "image": [
+        "/images/products/men_trousers3.png"
+      ],
+      "category": "Men",
+      "subCategory": "Bottomwear",
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "date": 20230801,
+      "bestseller": false,
+      "id": "9fb7"
+    },
+    {
+      "_id": "aaaap",
+      "name": "Girls Round Neck Cotton Top",
+      "description": "Girls' fashion top",
+      "price": 170,
+      "image": [
+        "/images/products/kids_girlstop4.png"
+      ],
+      "category": "Kids",
+      "subCategory": "Topwear",
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "date": 20230731,
+      "bestseller": false,
+      "id": "a5f3"
+    },
+    {
+      "_id": "aaaaq",
+      "name": "Men Tapered Fit Flat-Front Trousers",
+      "description": "Classic fit trousers",
+      "price": 150,
+      "image": [
+        "/images/products/men_trousers4.png"
+      ],
+      "category": "Men",
+      "subCategory": "Bottomwear",
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "date": 20230730,
+      "bestseller": false,
+      "id": "6f25"
+    },
+    {
+      "_id": "aaaar",
+      "name": "Boy Round Neck Pure Cotton T-shirt",
+      "description": "Boys' casual t-shirt",
+      "price": 180,
+      "image": [
+        "/images/products/kids_boystop2.png"
+      ],
+      "category": "Kids",
+      "subCategory": "Topwear",
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "date": 20230729,
+      "bestseller": false,
+      "id": "028c"
+    },
+    {
+      "_id": "aaaas",
+      "name": "Boy Round Neck Pure Cotton T-shirt",
+      "description": "Boys' everyday t-shirt",
+      "price": 160,
+      "image": [
+        "/images/products/kids_boystop3.png"
+      ],
+      "category": "Kids",
+      "subCategory": "Topwear",
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "date": 20230728,
+      "bestseller": false,
+      "id": "9b91"
+    },
+    {
+      "_id": "aaaat",
+      "name": "Women Palazzo Pants with Waist Belt",
+      "description": "Stylish palazzo pants",
+      "price": 190,
+      "image": [
+        "/images/products/women_pants1.png"
+      ],
+      "category": "Women",
+      "subCategory": "Bottomwear",
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "date": 20230727,
+      "bestseller": false,
+      "id": "e816"
+    },
+    {
+      "_id": "aaaau",
+      "name": "Women Zip-Front Relaxed Fit Jacket",
+      "description": "Comfortable zip-front jacket",
+      "price": 170,
+      "image": [
+        "/images/products/women_jacket1.png"
+      ],
+      "category": "Women",
+      "subCategory": "Winterwear",
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "date": 20230726,
+      "bestseller": false,
+      "id": "ca92"
+    },
+    {
+      "_id": "aaaav",
+      "name": "Women Palazzo Pants with Waist Belt",
+      "description": "Fashionable palazzo pants",
+      "price": 200,
+      "image": [
+        "/images/products/women_pants2.png"
+      ],
+      "category": "Women",
+      "subCategory": "Bottomwear",
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "date": 20230725,
+      "bestseller": false,
+      "id": "7609"
+    },
+    {
+      "_id": "aaaaw",
+      "name": "Boy Round Neck Pure Cotton T-shirt",
+      "description": "Boys' premium t-shirt",
+      "price": 180,
+      "image": [
+        "/images/products/kids_boystop4.png"
+      ],
+      "category": "Kids",
+      "subCategory": "Topwear",
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "date": 20230724,
+      "bestseller": false,
+      "id": "bde1"
+    },
+    {
+      "_id": "aaaax",
+      "name": "Boy Round Neck Pure Cotton T-shirt",
+      "description": "Boys' stylish t-shirt",
+      "price": 210,
+      "image": [
+        "/images/products/kids_boystop5.png"
+      ],
+      "category": "Kids",
+      "subCategory": "Topwear",
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "date": 20230723,
+      "bestseller": false,
+      "id": "74a4"
+    },
+    {
+      "_id": "aaaay",
+      "name": "Girls Round Neck Cotton Top",
+      "description": "Girls' premium top",
+      "price": 190,
+      "image": [
+        "/images/products/kids_girlstop5.png"
+      ],
+      "category": "Kids",
+      "subCategory": "Topwear",
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "date": 20230722,
+      "bestseller": false,
+      "id": "8cdf"
+    },
+    {
+      "_id": "aaaaz",
+      "name": "Women Zip-Front Relaxed Fit Jacket",
+      "description": "Warm zip-front jacket",
+      "price": 220,
+      "image": [
+        "/images/products/women_jacket2.png"
+      ],
+      "category": "Women",
+      "subCategory": "Winterwear",
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "date": 20230721,
+      "bestseller": false,
+      "id": "0171"
+    },
+    {
+      "_id": "aaaba",
+      "name": "Girls Round Neck Cotton Top",
+      "description": "Girls' soft cotton top",
+      "price": 200,
+      "image": [
+        "/images/products/kids_girlstop6.png"
+      ],
+      "category": "Kids",
+      "subCategory": "Topwear",
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "date": 20230720,
+      "bestseller": false,
+      "id": "c3ea"
+    },
+    {
+      "_id": "aaabb",
+      "name": "Men Slim Fit Relaxed Denim Jacket",
+      "description": "Slim fit denim jacket",
+      "price": 230,
+      "image": [
+        "/images/products/men_jacket1.png"
+      ],
+      "category": "Men",
+      "subCategory": "Winterwear",
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "date": 20230719,
+      "bestseller": false,
+      "id": "9cb6"
+    },
+    {
+      "_id": "aaabc",
+      "name": "Women Round Neck Cotton Top",
+      "description": "Women's comfortable top",
+      "price": 210,
+      "image": [
+        "/images/products/women_top4.png"
+      ],
+      "category": "Women",
+      "subCategory": "Topwear",
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "date": 20230718,
+      "bestseller": false,
+      "id": "8bfd"
+    },
+    {
+      "_id": "aaabd",
+      "name": "Girls Round Neck Cotton Top",
+      "description": "Girls' trendy top",
+      "price": 240,
+      "image": [
+        "/images/products/kids_girlstop7.png"
+      ],
+      "category": "Kids",
+      "subCategory": "Topwear",
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "date": 20230717,
+      "bestseller": false,
+      "id": "1a77"
+    },
+    {
+      "_id": "aaabe",
+      "name": "Men Round Neck Pure Cotton T-shirt",
+      "description": "Men's classic t-shirt",
+      "price": 220,
+      "image": [
+        "/images/products/men_tshirt6.png"
+      ],
+      "category": "Men",
+      "subCategory": "Topwear",
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "date": 20230716,
+      "bestseller": false,
+      "id": "742f"
+    },
+    {
+      "_id": "aaabf",
+      "name": "Men Round Neck Pure Cotton T-shirt",
+      "description": "Men's premium t-shirt",
+      "price": 250,
+      "image": [
+        "/images/products/men_tshirt7.png"
+      ],
+      "category": "Men",
+      "subCategory": "Topwear",
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "date": 20230715,
+      "bestseller": false,
+      "id": "92ee"
+    },
+    {
+      "_id": "aaabg",
+      "name": "Girls Round Neck Cotton Top",
+      "description": "Girls' soft everyday top",
+      "price": 230,
+      "image": [
+        "/images/products/kids_girlstop8.png"
+      ],
+      "category": "Kids",
+      "subCategory": "Topwear",
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "date": 20230714,
+      "bestseller": false,
+      "id": "2287"
+    },
+    {
+      "_id": "aaabh",
+      "name": "Women Round Neck Cotton Top",
+      "description": "Women's stylish top",
+      "price": 260,
+      "image": [
+        "/images/products/women_top5.png"
+      ],
+      "category": "Women",
+      "subCategory": "Topwear",
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "date": 20230713,
+      "bestseller": false,
+      "id": "6384"
+    },
+    {
+      "_id": "aaabi",
+      "name": "Women Zip-Front Relaxed Fit Jacket",
+      "description": "Women's cozy jacket",
+      "price": 240,
+      "image": [
+        "/images/products/women_jacket3.png"
+      ],
+      "category": "Women",
+      "subCategory": "Winterwear",
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "date": 20230712,
+      "bestseller": false,
+      "id": "a030"
+    },
+    {
+      "_id": "aaabj",
+      "name": "Women Zip-Front Relaxed Fit Jacket",
+      "description": "Women's warm jacket",
+      "price": 270,
+      "image": [
+        "/images/products/women_jacket4.png"
+      ],
+      "category": "Women",
+      "subCategory": "Winterwear",
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "date": 20230711,
+      "bestseller": false,
+      "id": "e91d"
+    },
+    {
+      "_id": "aaabk",
+      "name": "Women Round Neck Cotton Top",
+      "description": "Women's everyday top",
+      "price": 250,
+      "image": [
+        "/images/products/women_top6.png"
+      ],
+      "category": "Women",
+      "subCategory": "Topwear",
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "date": 20230710,
+      "bestseller": false,
+      "id": "4115"
+    },
+    {
+      "_id": "aaabl",
+      "name": "Men Round Neck Pure Cotton T-shirt",
+      "description": "Men's essential t-shirt",
+      "price": 280,
+      "image": [
+        "/images/products/men_tshirt8.png"
+      ],
+      "category": "Men",
+      "subCategory": "Topwear",
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "date": 20230709,
+      "bestseller": false,
+      "id": "8d72"
+    },
+    {
+      "_id": "aaabm",
+      "name": "Men Printed Plain Cotton Shirt",
+      "description": "Men's printed shirt",
+      "price": 260,
+      "image": [
+        "/images/products/men_shirt1.png"
+      ],
+      "category": "Men",
+      "subCategory": "Topwear",
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "date": 20230708,
+      "bestseller": false,
+      "id": "e549"
+    },
+    {
+      "_id": "aaabn",
+      "name": "Men Slim Fit Relaxed Denim Jacket",
+      "description": "Men's stylish denim jacket",
+      "price": 290,
+      "image": [
+        "/images/products/men_jacket2.png"
+      ],
+      "category": "Men",
+      "subCategory": "Winterwear",
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "date": 20230707,
+      "bestseller": false,
+      "id": "ec86"
+    },
+    {
+      "_id": "aaabo",
+      "name": "Men Round Neck Pure Cotton T-shirt",
+      "description": "Men's comfortable t-shirt",
+      "price": 270,
+      "image": [
+        "/images/products/men_tshirt9.png"
+      ],
+      "category": "Men",
+      "subCategory": "Topwear",
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "date": 20230706,
+      "bestseller": false,
+      "id": "a095"
+    },
+    {
+      "_id": "aaabp",
+      "name": "Boy Round Neck Pure Cotton T-shirt",
+      "description": "Boys' soft cotton t-shirt",
+      "price": 300,
+      "image": [
+        "/images/products/kids_boystop6.png"
+      ],
+      "category": "Kids",
+      "subCategory": "Topwear",
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "date": 20230705,
+      "bestseller": false,
+      "id": "4673"
+    },
+    {
+      "_id": "aaabq",
+      "name": "Kid Tapered Slim Fit Trouser",
+      "description": "Kids' slim fit trousers",
+      "price": 280,
+      "image": [
+        "/images/products/kids_trousers1.png"
+      ],
+      "category": "Kids",
+      "subCategory": "Bottomwear",
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "date": 20230704,
+      "bestseller": false,
+      "id": "00db"
+    },
+    {
+      "_id": "aaabr",
+      "name": "Women Zip-Front Relaxed Fit Jacket",
+      "description": "Women's fashionable jacket",
+      "price": 310,
+      "image": [
+        "/images/products/women_jacket5.png"
+      ],
+      "category": "Women",
+      "subCategory": "Winterwear",
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "date": 20230703,
+      "bestseller": false,
+      "id": "b84c"
+    },
+    {
+      "_id": "aaabs",
+      "name": "Men Slim Fit Relaxed Denim Jacket",
+      "description": "Men's classic denim jacket",
+      "price": 290,
+      "image": [
+        "/images/products/men_jacket3.png"
+      ],
+      "category": "Men",
+      "subCategory": "Winterwear",
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "date": 20230702,
+      "bestseller": false,
+      "id": "0c55"
+    },
+    {
+      "_id": "aaabt",
+      "name": "Men Slim Fit Relaxed Denim Jacket",
+      "description": "Men's modern denim jacket",
+      "price": 320,
+      "image": [
+        "/images/products/men_jacket4.png"
+      ],
+      "category": "Men",
+      "subCategory": "Winterwear",
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "date": 20230701,
+      "bestseller": false,
+      "id": "23f2"
+    },
+    {
+      "_id": "aaabu",
+      "name": "Kid Tapered Slim Fit Trouser",
+      "description": "Kids' comfortable trousers",
+      "price": 300,
+      "image": [
+        "/images/products/kids_trousers2.png"
+      ],
+      "category": "Kids",
+      "subCategory": "Bottomwear",
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "date": 20230630,
+      "bestseller": false,
+      "id": "2f86"
+    },
+    {
+      "_id": "aaabv",
+      "name": "Men Slim Fit Relaxed Denim Jacket",
+      "description": "Men's premium denim jacket",
+      "price": 330,
+      "image": [
+        "/images/products/men_jacket5.png"
+      ],
+      "category": "Men",
+      "subCategory": "Winterwear",
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "date": 20230629,
+      "bestseller": false,
+      "id": "97ed"
+    },
+    {
+      "_id": "aaabw",
+      "name": "Kid Tapered Slim Fit Trouser",
+      "description": "Kids' stylish trousers",
+      "price": 310,
+      "image": [
+        "/images/products/kids_trousers3.png"
+      ],
+      "category": "Kids",
+      "subCategory": "Bottomwear",
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "date": 20230628,
+      "bestseller": false,
+      "id": "6f65"
+    },
+    {
+      "_id": "aaabx",
+      "name": "Kid Tapered Slim Fit Trouser",
+      "description": "Kids' everyday trousers",
+      "price": 340,
+      "image": [
+        "/images/products/kids_trousers4.png"
+      ],
+      "category": "Kids",
+      "subCategory": "Bottomwear",
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "date": 20230627,
+      "bestseller": false,
+      "id": "d442"
+    },
+    {
+      "_id": "aaaby",
+      "name": "Women Zip-Front Relaxed Fit Jacket",
+      "description": "Women's premium jacket",
+      "price": 320,
+      "image": [
+        "/images/products/women_jacket6.png"
+      ],
+      "category": "Women",
+      "subCategory": "Winterwear",
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "date": 20230626,
+      "bestseller": false,
+      "id": "d9b2"
+    },
+    {
+      "_id": "aaabz",
+      "name": "Men Slim Fit Relaxed Denim Jacket",
+      "description": "Men's essential denim jacket",
+      "price": 350,
+      "image": [
+        "./Images/products/p_img52.png"
+      ],
+      "category": "Men",
+      "subCategory": "Winterwear",
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "date": 20230625,
+      "bestseller": false,
+      "id": "e7f7"
+    }
+  ],
+  "orders": [
+    {
+      "id": "1",
+      "firstName": "John",
+      "lastName": "Doe",
+      "email": "john@example.com",
+      "street": "123 Main Street",
+      "city": "New York",
+      "state": "NY",
+      "pincode": "10001",
+      "country": "USA",
+      "phone": "1234567890",
+      "paymentMethod": "cod",
+      "cart": [
+        {
+          "_id": "p1",
+          "name": "Men's T-Shirt",
+          "size": "M",
+          "price": 25,
+          "quantity": 2
+        }
+      ],
+      "totalAmount": 50,
+      "status": "pending",
+      "orderDate": "2025-08-19T12:00:00.000Z"
+    },
+    {
+      "id": "d92d",
+      "firstName": "anas",
+      "lastName": "muhammed",
+      "email": "muhammedanas247474@gmail.com",
+      "street": "kunnathpalam",
+      "city": "calicut",
+      "state": "kerala",
+      "pincode": "1234",
+      "country": "india",
+      "phone": "123456789",
+      "cart": [
+        {
+          "_id": "aaaac",
+          "name": "Girls Round Neck Cotton Top",
+          "size": "XL",
+          "price": 220,
+          "quantity": 1
+        },
+        {
+          "_id": "aaaac",
+          "name": "Girls Round Neck Cotton Top",
+          "size": "L",
+          "price": 220,
+          "quantity": 1
+        },
+        {
+          "_id": "aaaac",
+          "name": "Girls Round Neck Cotton Top",
+          "size": "S",
+          "price": 220,
+          "quantity": 1
+        },
+        {
+          "_id": "aaaac",
+          "name": "Girls Round Neck Cotton Top",
+          "size": "M",
+          "price": 220,
+          "quantity": 1
+        }
+      ],
+      "paymentMethod": "cod",
+      "totalAmount": 880,
+      "status": "pending",
+      "orderDate": "2025-08-20T10:12:53.452Z"
+    },
+    {
+      "id": "6de6",
+      "firstName": "anas",
+      "lastName": "muhammed",
+      "email": "muhammedanas247474@gmail.com",
+      "street": "kunnathpalam",
+      "city": "calicut",
+      "state": "kerala",
+      "pincode": "1234",
+      "country": "India",
+      "phone": "123456789",
+      "cart": [
+        {
+          "_id": "aaaac",
+          "name": "Girls Round Neck Cotton Top",
+          "size": "XL",
+          "price": 220,
+          "quantity": 1
+        },
+        {
+          "_id": "aaaac",
+          "name": "Girls Round Neck Cotton Top",
+          "size": "L",
+          "price": 220,
+          "quantity": 1
+        },
+        {
+          "_id": "aaaac",
+          "name": "Girls Round Neck Cotton Top",
+          "size": "S",
+          "price": 220,
+          "quantity": 1
+        },
+        {
+          "_id": "aaaac",
+          "name": "Girls Round Neck Cotton Top",
+          "size": "M",
+          "price": 220,
+          "quantity": 1
+        }
+      ],
+      "paymentMethod": "cod",
+      "totalAmount": 880,
+      "status": "pending",
+      "orderDate": "2025-08-20T10:43:16.311Z"
+    },
+    {
+      "id": "565a",
+      "firstName": "anas",
+      "lastName": "muhammed",
+      "email": "muhammedanas247474@gmail.com",
+      "street": "kunnathpalam",
+      "city": "calicut",
+      "state": "kerala",
+      "pincode": "1234",
+      "country": "India",
+      "phone": "123456789",
+      "cart": [
+        {
+          "_id": "aaaag",
+          "name": "Men Tapered Fit Flat-Front Trousers",
+          "size": "L",
+          "price": 190,
+          "quantity": 1
+        }
+      ],
+      "paymentMethod": "cod",
+      "totalAmount": 190,
+      "status": "pending",
+      "orderDate": "2025-08-20T12:28:43.932Z"
+    },
+    {
+      "id": "7c4c",
+      "firstName": "",
+      "lastName": "",
+      "email": "",
+      "street": "",
+      "city": "",
+      "state": "",
+      "pincode": "",
+      "country": "",
+      "phone": "",
+      "cart": [],
+      "paymentMethod": "cod",
+      "totalAmount": 0,
+      "status": "pending",
+      "orderDate": "2025-08-22T04:06:31.591Z"
+    },
+    {
+      "id": "9559",
+      "firstName": "",
+      "lastName": "",
+      "email": "",
+      "street": "",
+      "city": "",
+      "state": "",
+      "pincode": "",
+      "country": "",
+      "phone": "",
+      "cart": [
+        {
+          "_id": "aaaab",
+          "name": "Men Round Neck Pure Cotton T-shirt",
+          "size": "L",
+          "price": 200,
+          "quantity": 1
+        }
+      ],
+      "paymentMethod": "stripe",
+      "totalAmount": 200,
+      "status": "pending",
+      "orderDate": "2025-08-22T08:57:45.573Z"
+    }
+  ]
+}
