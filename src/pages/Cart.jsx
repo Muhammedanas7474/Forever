@@ -3,13 +3,14 @@ import { ShopContext } from "../context/ShopContext";
 import Title from "../components/Title";
 import CartTotal from "../components/CartTotal";
 import { assets } from "../../public/Images/products/assets";
+import { useNavigate } from "react-router-dom";
 
 const Cart = () => {
 
   console.log("Cart component rendered");
-  const { products, currency, cartItems,updateQuantity,navigate } = useContext(ShopContext);
+  const { products, currency, cartItems,updateQuantity} = useContext(ShopContext);
   const [cartData, setCartData] = useState([]);
-
+const navigate=useNavigate();
   useEffect(() => {
     console.log("Current cartItems:", cartItems); 
     const tempData = [];

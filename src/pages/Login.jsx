@@ -3,12 +3,13 @@ import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 
 const Login = () => {
-  const [currentState, setCurrentState] = useState("Sign Up"); // or "Login"
+  const [currentState, setCurrentState] = useState("Sign Up");
   const [form, setForm] = useState({ name: "", email: "", password: "" });
   const { register, login } = useContext(AuthContext);
   const navigate = useNavigate();
 
-  const onChange = (e) => setForm((f) => ({ ...f, [e.target.name]: e.target.value }));
+  const onChange = (e) =>
+    setForm((f) => ({ ...f, [e.target.name]: e.target.value }));
 
   const onSubmitHandler = async (e) => {
     e.preventDefault();
@@ -18,9 +19,16 @@ const Login = () => {
         alert("Registration successful! Please log in.");
         setCurrentState("Login");
       } else {
-        await login({ email: form.email, password: form.password });
+        const loggedInUser = await login({
+          email: form.email,
+          password: form.password,
+        });
         alert("Welcome!");
-        navigate("/"); // go home
+        if (loggedInUser.role === "admin") {
+          navigate("/admin", { replace: true });
+        } else {
+          navigate("/", { replace: true });
+        }
       }
     } catch (err) {
       alert(err.message || "Something went wrong");
@@ -72,11 +80,17 @@ const Login = () => {
       <div className="w-full flex justify-between text-sm -mt-2">
         <p className="cursor-pointer">Forgot Your Password?</p>
         {currentState === "Login" ? (
-          <p onClick={() => setCurrentState("Sign Up")} className="cursor-pointer">
+          <p
+            onClick={() => setCurrentState("Sign Up")}
+            className="cursor-pointer"
+          >
             Create account
           </p>
         ) : (
-          <p onClick={() => setCurrentState("Login")} className="cursor-pointer">
+          <p
+            onClick={() => setCurrentState("Login")}
+            className="cursor-pointer"
+          >
             Login Here
           </p>
         )}

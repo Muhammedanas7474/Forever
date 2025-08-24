@@ -1,9 +1,9 @@
 import { Routes, Route } from "react-router-dom";
 import AdminRoutes from "./Admin/AdminRoutes";
 import UserRoutes from "./routes/UserRouters";
-import ProtectedRoute from "./components/ProtectedRoute";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 export default function App() {
   return (
@@ -17,7 +17,7 @@ export default function App() {
         <Route
           path="/admin/*"
           element={
-            <ProtectedRoute adminOnly>
+            <ProtectedRoute adminOnly={true}>
               <AdminRoutes />
             </ProtectedRoute>
           }

@@ -1,8 +1,9 @@
-import React, { useContext, useState } from 'react';
-import Title from '../components/Title';
-import CartTotal from '../components/CartTotal';
-import { ShopContext } from '../context/ShopContext';
-import { assets } from '../../public/Images/products/assets';
+import React, { useContext, useMemo, useState } from "react";
+import Title from "../components/Title";
+import CartTotal from "../components/CartTotal";
+import { ShopContext } from "../context/ShopContext";
+import { AuthContext } from "../context/AuthContext";
+import { assets } from "../../public/Images/products/assets";
 import axios from "axios";
 
 const PlaceOrder = () => {
@@ -16,50 +17,106 @@ const PlaceOrder = () => {
     state: "",
     pincode: "",
     country: "",
-    phone: ""
+    phone: "",
   });
 
-  const { cartItems, products, navigate ,clearCart} = useContext(ShopContext);
+  const { cartItems, products, navigate, clearCart } = useContext(ShopContext);
+  const { user } = useContext(AuthContext);
+  const userId = user?.id || null; // note: it's `id`, not `_id`
 
   const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
+    setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  // build cart data
-  const cartData = [];
-  for (const itemId in cartItems) {
-    for (const size in cartItems[itemId]) {
-      if (cartItems[itemId][size] > 0) {
-        const product = products.find(p => p._id === itemId);
-        cartData.push({
-          _id: itemId,
-          name: product?.name,
-          size,
-          price: product?.price,
-          quantity: cartItems[itemId][size]
-        });
+  // Build cart data
+  const cartData = useMemo(() => {
+    const list = [];
+    for (const itemId in cartItems) {
+      for (const size in cartItems[itemId]) {
+        const qty = cartItems[itemId][size];
+        if (qty > 0) {
+          const product = products.find((p) => p._id === itemId);
+          if (product) {
+            list.push({
+              _id: itemId,
+              name: product.name,
+              size,
+              price: product.price,
+              quantity: qty,
+              image: product.image, // <-- FIX: save full array
+            });
+          }
+        }
       }
     }
-  }
+    return list;
+  }, [cartItems, products]);
+
+  const isFormValid = useMemo(() => {
+    return (
+      form.firstName &&
+      form.lastName &&
+      form.email &&
+      form.street &&
+      form.city &&
+      form.state &&
+      form.pincode &&
+      form.country &&
+      form.phone &&
+      cartData.length > 0
+    );
+  }, [form, cartData]);
 
   const handlePlaceOrder = async () => {
-    const orderData = {
-      ...form,
+    if (!isFormValid) {
+      alert("⚠️ Please fill all fields and make sure your cart is not empty.");
+      return;
+    }
+
+    if (!userId) {
+      alert("⚠️ You must be logged in to place an order.");
+      return;
+    }
+
+    const newOrder = {
+      id: Date.now().toString(), // order id
+      address: { ...form },
       cart: cartData,
       paymentMethod: method,
-      totalAmount: cartData.reduce((acc, item) => acc + item.price * item.quantity, 0),
+      totalAmount: cartData.reduce(
+        (acc, item) => acc + item.price * item.quantity,
+        0
+      ),
       status: "pending",
-      orderDate: new Date().toISOString()
+      orderDate: new Date().toISOString(),
     };
 
     try {
-      await axios.post("http://localhost:3000/orders", orderData);
-      alert("Order placed successfully!");
-      clearCart(); 
+      // get fresh user from db.json
+      const { data: freshUser } = await axios.get(
+        `http://localhost:3000/users/${encodeURIComponent(userId)}`
+      );
+
+      const updatedUser = {
+        ...freshUser,
+        orders: [...(freshUser.orders || []), newOrder],
+      };
+
+      // save back to db.json
+      await axios.put(
+        `http://localhost:3000/users/${encodeURIComponent(userId)}`,
+        updatedUser
+      );
+
+      // sync local storage
+      localStorage.setItem("user", JSON.stringify(updatedUser));
+
+      alert("✅ Order placed successfully!");
+      clearCart();
       navigate("/orders");
     } catch (err) {
-      console.error(err);
-      alert("Failed to place order");
+      console.error("Order Error:", err);
+      alert("❌ Failed to place order");
     }
   };
 
@@ -71,20 +128,20 @@ const PlaceOrder = () => {
           <Title text1={"DELIVERY"} text2={"INFORMATION"} />
         </div>
         <div className="flex gap-3">
-          <input name="firstName" onChange={handleChange} className="border border-gray-300 rounded py-1.5 px-3.5 w-full" type="text" placeholder="First Name" />
-          <input name="lastName" onChange={handleChange} className="border border-gray-300 rounded py-1.5 px-3.5 w-full" type="text" placeholder="Last Name" />
+          <input name="firstName" onChange={handleChange} value={form.firstName} className="border border-gray-300 rounded py-1.5 px-3.5 w-full" type="text" placeholder="First Name" />
+          <input name="lastName" onChange={handleChange} value={form.lastName} className="border border-gray-300 rounded py-1.5 px-3.5 w-full" type="text" placeholder="Last Name" />
         </div>
-        <input name="email" onChange={handleChange} className="border border-gray-300 rounded py-1.5 px-3.5 w-full" type="email" placeholder="Enter Your email" />
-        <input name="street" onChange={handleChange} className="border border-gray-300 rounded py-1.5 px-3.5 w-full" type="text" placeholder="Street" />
+        <input name="email" onChange={handleChange} value={form.email} className="border border-gray-300 rounded py-1.5 px-3.5 w-full" type="email" placeholder="Enter Your email" />
+        <input name="street" onChange={handleChange} value={form.street} className="border border-gray-300 rounded py-1.5 px-3.5 w-full" type="text" placeholder="Street" />
         <div className="flex gap-3">
-          <input name="city" onChange={handleChange} className="border border-gray-300 rounded py-1.5 px-3.5 w-full" type="text" placeholder="City" />
-          <input name="state" onChange={handleChange} className="border border-gray-300 rounded py-1.5 px-3.5 w-full" type="text" placeholder="State" />
+          <input name="city" onChange={handleChange} value={form.city} className="border border-gray-300 rounded py-1.5 px-3.5 w-full" type="text" placeholder="City" />
+          <input name="state" onChange={handleChange} value={form.state} className="border border-gray-300 rounded py-1.5 px-3.5 w-full" type="text" placeholder="State" />
         </div>
         <div className="flex gap-3">
-          <input name="pincode" onChange={handleChange} className="border border-gray-300 rounded py-1.5 px-3.5 w-full" type="number" placeholder="PinCode" />
-          <input name="country" onChange={handleChange} className="border border-gray-300 rounded py-1.5 px-3.5 w-full" type="text" placeholder="Country" />
+          <input name="pincode" onChange={handleChange} value={form.pincode} className="border border-gray-300 rounded py-1.5 px-3.5 w-full" type="number" placeholder="PinCode" />
+          <input name="country" onChange={handleChange} value={form.country} className="border border-gray-300 rounded py-1.5 px-3.5 w-full" type="text" placeholder="Country" />
         </div>
-        <input name="phone" onChange={handleChange} className="border border-gray-300 rounded py-1.5 px-3.5 w-full" type="number" placeholder="Phone" />
+        <input name="phone" onChange={handleChange} value={form.phone} className="border border-gray-300 rounded py-1.5 px-3.5 w-full" type="number" placeholder="Phone" />
       </div>
 
       {/* Right Side */}
@@ -111,7 +168,10 @@ const PlaceOrder = () => {
           </div>
 
           <div className="w-full text-end mt-8 ">
-            <button onClick={handlePlaceOrder} className="bg-black text-white px-16 py-3 text-sm">PLACE ORDER</button>
+            <button onClick={handlePlaceOrder} disabled={!isFormValid || !userId} className={`px-16 py-3 text-sm rounded ${isFormValid && userId ? "bg-black text-white hover:bg-gray-800" : "bg-gray-400 text-white cursor-not-allowed"}`}>
+              PLACE ORDER
+            </button>
+            {!userId && <p className="mt-2 text-sm text-red-500">Please log in to place an order.</p>}
           </div>
         </div>
       </div>

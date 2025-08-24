@@ -33,7 +33,7 @@ const AdminSidebar = () => {
         {!collapsed && (
           <div className="flex items-center">
             <FiShoppingBag className="h-8 w-8 mr-2" />
-            <span className="text-2xl font-bold">FashionFlair</span>
+            <span className="text-2xl font-bold">Forever</span>
           </div>
         )}
         <button
@@ -66,20 +66,7 @@ const AdminSidebar = () => {
           {!collapsed && "Orders"}
         </NavLink>
 
-        <NavLink to="/admin/analytics" className={navLinkClasses}>
-          <FiPieChart className="mr-3" />
-          {!collapsed && "Analytics"}
-        </NavLink>
-
-        <NavLink to="/admin/regions" className={navLinkClasses}>
-          <FiMap className="mr-3" />
-          {!collapsed && "Regions"}
-        </NavLink>
-
-        <NavLink to="/admin/settings" className={navLinkClasses}>
-          <FiSettings className="mr-3" />
-          {!collapsed && "Settings"}
-        </NavLink>
+       
       </nav>
     </div>
   );

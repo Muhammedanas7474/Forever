@@ -3,18 +3,29 @@ import { ShopContext } from '../context/ShopContext'
 import { Link } from 'react-router-dom'
 import { FaRegHeart, FaHeart } from "react-icons/fa";
 
-const ProductItem = ({id, image, name, price}) => {
+const ProductItem = ({ id, image, name, price }) => {
   const { currency, wishlistItems, toggleWishlist } = useContext(ShopContext)
   const isInWishlist = wishlistItems.includes(id)
-  
+
   const handleWishlistClick = (e) => {
     e.preventDefault()
     toggleWishlist(id)
   }
-  
+
+  // ✅ Handle image safely (string or array)
+  const productImage =
+    Array.isArray(image) && image.length > 0
+      ? image[0]
+      : typeof image === "string"
+      ? image
+      : "/Images/no-image.png" // fallback image
+
   return (
-    <Link className='text-grey-700 cursor-pointer block group' to={`/products/${id}`}>
-      <div className='relative overflow-hidden ' >
+    <Link
+      className="text-grey-700 cursor-pointer block group"
+      to={`/products/${id}`}
+    >
+      <div className="relative overflow-hidden">
         {/* Wishlist Icon */}
         <button
           onClick={handleWishlistClick}
@@ -28,15 +39,19 @@ const ProductItem = ({id, image, name, price}) => {
           )}
         </button>
 
-        <img 
-          className='w-full h-110 object-cover group-hover:scale-105 transition ease-in-out ' 
-          src={image[0]} 
-          alt={name} 
+        {/* ✅ Safe image rendering */}
+        <img
+          className="w-full h-110 object-cover group-hover:scale-105 transition ease-in-out"
+          src={productImage}
+          alt={name || "Product"}
         />
       </div>
-      <div className='py-3'>
-        <p className='pt-3 pb-1 text-sm truncate'>{name}</p>
-        <p className='text-sm font-medium'>{currency}{price}</p>
+      <div className="py-3">
+        <p className="pt-3 pb-1 text-sm truncate">{name || "Unnamed Product"}</p>
+        <p className="text-sm font-medium">
+          {currency}
+          {price ?? "N/A"}
+        </p>
       </div>
     </Link>
   )

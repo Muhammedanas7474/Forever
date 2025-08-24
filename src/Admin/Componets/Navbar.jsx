@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext, useEffect, useRef } from 'react';
 import { 
   FiBell, 
   FiMessageSquare, 
@@ -10,35 +10,58 @@ import {
   FiMenu,
   FiX
 } from 'react-icons/fi';
+import { AuthContext } from '../../context/AuthContext';
+import { Link } from 'react-router-dom';
 
-const AdminNavbar = ({ toggleSidebar, isSidebarOpen }) => {
+const AdminNavbar = ({ 
+  toggleSidebar, 
+  isSidebarOpen, 
+  userData, 
+  notifications = [], 
+  messages = [] 
+}) => {
   const [isProfileOpen, setIsProfileOpen] = useState(false);
   const [notificationsOpen, setNotificationsOpen] = useState(false);
   const [messagesOpen, setMessagesOpen] = useState(false);
+  const { logout } = useContext(AuthContext); 
 
-  const userData = {
-    name: "Alex Morgan",
-    email: "alex@fashionflair.com",
-    role: "Store Manager",
-    avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1287&q=80"
+  // Refs for dropdowns
+  const profileRef = useRef(null);
+  const notificationsRef = useRef(null);
+  const messagesRef = useRef(null);
+
+  // Close dropdowns when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (
+        profileRef.current && !profileRef.current.contains(e.target) &&
+        notificationsRef.current && !notificationsRef.current.contains(e.target) &&
+        messagesRef.current && !messagesRef.current.contains(e.target)
+      ) {
+        setIsProfileOpen(false);
+        setNotificationsOpen(false);
+        setMessagesOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+
+  // Calculate unread counts
+  const unreadNotificationsCount = notifications.filter(n => !n.read).length;
+  const unreadMessagesCount = messages.length;
+
+  const handleLogout = () => {
+    logout();
+    setIsProfileOpen(false);
   };
-
-  const notifications = [
-    { id: 1, text: "New order received", time: "10 mins ago", read: false },
-    { id: 2, text: "Payment of $234 completed", time: "1 hour ago", read: false },
-    { id: 3, text: "Inventory low on summer dresses", time: "5 hours ago", read: true },
-    { id: 4, text: "New customer registered", time: "Yesterday", read: true }
-  ];
-
-  const messages = [
-    { id: 1, text: "When will my order ship?", sender: "Customer #4829", time: "10:42 AM" },
-    { id: 2, text: "Do you have this in size M?", sender: "Customer #5712", time: "9:15 AM" },
-    { id: 3, text: "Exchange request for order #2841", sender: "Customer #3394", time: "Yesterday" }
-  ];
 
   return (
     <nav className="bg-white shadow-md py-3 px-6 flex items-center justify-between">
-      {/* Left side - Toggle sidebar and search */}
+      {/* Left side */}
       <div className="flex items-center">
         <button 
           onClick={toggleSidebar}
@@ -57,127 +80,130 @@ const AdminNavbar = ({ toggleSidebar, isSidebarOpen }) => {
         </div>
       </div>
 
-      {/* Right side - Icons and profile */}
+      {/* Right side */}
       <div className="flex items-center space-x-4">
         {/* Notifications */}
-        <div className="relative">
+        <div className="relative" ref={notificationsRef}>
           <button 
             onClick={() => {
               setNotificationsOpen(!notificationsOpen);
               setMessagesOpen(false);
+              setIsProfileOpen(false);
             }}
             className="p-2 rounded-lg text-gray-600 hover:bg-gray-100 relative"
           >
             <FiBell size={20} />
-            <span className="absolute -top-1 -right-1 bg-red-500 text-white rounded-full text-xs w-5 h-5 flex items-center justify-center">
-              3
-            </span>
+            {unreadNotificationsCount > 0 && (
+              <span className="absolute -top-1 -right-1 bg-red-500 text-white rounded-full text-xs w-5 h-5 flex items-center justify-center">
+                {unreadNotificationsCount}
+              </span>
+            )}
           </button>
-          
           {notificationsOpen && (
             <div className="absolute right-0 mt-2 w-80 bg-white rounded-lg shadow-xl z-50 border border-gray-200">
               <div className="p-4 border-b border-gray-200">
                 <h3 className="font-semibold text-gray-800">Notifications</h3>
               </div>
               <div className="max-h-96 overflow-y-auto">
-                {notifications.map(notification => (
-                  <div 
-                    key={notification.id} 
-                    className={`p-4 border-b border-gray-100 hover:bg-gray-50 ${!notification.read ? 'bg-blue-50' : ''}`}
-                  >
-                    <p className="text-sm font-medium text-gray-800">{notification.text}</p>
-                    <p className="text-xs text-gray-500 mt-1">{notification.time}</p>
-                  </div>
-                ))}
-              </div>
-              <div className="p-3 border-t border-gray-200 text-center">
-                <button className="text-sm text-indigo-600 font-medium hover:text-indigo-800">
-                  Mark all as read
-                </button>
+                {notifications.length > 0 ? (
+                  notifications.map(notification => (
+                    <div 
+                      key={notification.id} 
+                      className={`p-4 border-b border-gray-100 hover:bg-gray-50 ${!notification.read ? 'bg-blue-50' : ''}`}
+                    >
+                      <p className="text-sm font-medium text-gray-800">{notification.text}</p>
+                      <p className="text-xs text-gray-500 mt-1">{notification.time}</p>
+                    </div>
+                  ))
+                ) : (
+                  <div className="p-4 text-center text-gray-500">No notifications</div>
+                )}
               </div>
             </div>
           )}
         </div>
 
         {/* Messages */}
-        <div className="relative">
+        <div className="relative" ref={messagesRef}>
           <button 
             onClick={() => {
               setMessagesOpen(!messagesOpen);
               setNotificationsOpen(false);
+              setIsProfileOpen(false);
             }}
             className="p-2 rounded-lg text-gray-600 hover:bg-gray-100 relative"
           >
             <FiMessageSquare size={20} />
-            <span className="absolute -top-1 -right-1 bg-indigo-500 text-white rounded-full text-xs w-5 h-5 flex items-center justify-center">
-              2
-            </span>
+            {unreadMessagesCount > 0 && (
+              <span className="absolute -top-1 -right-1 bg-indigo-500 text-white rounded-full text-xs w-5 h-5 flex items-center justify-center">
+                {unreadMessagesCount}
+              </span>
+            )}
           </button>
-          
           {messagesOpen && (
             <div className="absolute right-0 mt-2 w-80 bg-white rounded-lg shadow-xl z-50 border border-gray-200">
               <div className="p-4 border-b border-gray-200">
                 <h3 className="font-semibold text-gray-800">Messages</h3>
               </div>
               <div className="max-h-96 overflow-y-auto">
-                {messages.map(message => (
-                  <div key={message.id} className="p-4 border-b border-gray-100 hover:bg-gray-50">
-                    <p className="text-sm font-medium text-gray-800">{message.sender}</p>
-                    <p className="text-sm text-gray-600 truncate">{message.text}</p>
-                    <p className="text-xs text-gray-500 mt-1">{message.time}</p>
-                  </div>
-                ))}
-              </div>
-              <div className="p-3 border-t border-gray-200 text-center">
-                <button className="text-sm text-indigo-600 font-medium hover:text-indigo-800">
-                  View all messages
-                </button>
+                {messages.length > 0 ? (
+                  messages.map(message => (
+                    <div key={message.id} className="p-4 border-b border-gray-100 hover:bg-gray-50">
+                      <p className="text-sm font-medium text-gray-800">{message.sender}</p>
+                      <p className="text-sm text-gray-600 truncate">{message.text}</p>
+                      <p className="text-xs text-gray-500 mt-1">{message.time}</p>
+                    </div>
+                  ))
+                ) : (
+                  <div className="p-4 text-center text-gray-500">No messages</div>
+                )}
               </div>
             </div>
           )}
         </div>
 
-        {/* Profile dropdown */}
-        <div className="relative">
+        {/* Profile */}
+        <div className="relative" ref={profileRef}>
           <button 
-            onClick={() => setIsProfileOpen(!isProfileOpen)}
+            onClick={() => {
+              setIsProfileOpen(!isProfileOpen);
+              setMessagesOpen(false);
+              setNotificationsOpen(false);
+            }}
             className="flex items-center space-x-2 p-2 rounded-lg hover:bg-gray-100"
           >
-            <img 
-              src={userData.avatar} 
-              alt={userData.name} 
-              className="w-8 h-8 rounded-full object-cover"
-            />
+            {userData?.avatar ? (
+              <img src={userData.avatar} alt={userData.name} className="w-8 h-8 rounded-full object-cover" />
+            ) : (
+              <div className="w-8 h-8 rounded-full bg-indigo-500 flex items-center justify-center text-white font-medium">
+                {userData?.name?.charAt(0) || 'U'}
+              </div>
+            )}
             <div className="hidden md:block text-left">
-              <p className="text-sm font-medium text-gray-800">{userData.name}</p>
-              <p className="text-xs text-gray-500">{userData.role}</p>
+              <p className="text-sm font-medium text-gray-800">{userData?.name || 'User'}</p>
+              <p className="text-xs text-gray-500 capitalize">{userData?.role || 'user'}</p>
             </div>
             <FiChevronDown className="text-gray-500" />
           </button>
-
           {isProfileOpen && (
             <div className="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-xl z-50 border border-gray-200 py-1">
               <div className="px-4 py-2 border-b border-gray-200">
-                <p className="text-sm font-medium text-gray-800">{userData.name}</p>
-                <p className="text-xs text-gray-500 truncate">{userData.email}</p>
+                <p className="text-sm font-medium text-gray-800">{userData?.name || 'User'}</p>
+                <p className="text-xs text-gray-500 truncate">{userData?.email || ''}</p>
               </div>
-              
               <a href="#" className="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
-                <FiUser className="mr-3" />
-                My Profile
+                <FiUser className="mr-3" /> My Profile
               </a>
-              
               <a href="#" className="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
-                <FiSettings className="mr-3" />
-                Settings
+                <FiSettings className="mr-3" /> Settings
               </a>
-              
               <div className="border-t border-gray-200"></div>
-              
-              <button className="w-full flex items-center px-4 py-2 text-sm text-red-600 hover:bg-gray-100">
-                <FiLogOut className="mr-3" />
-                Logout
-              </button>
+              <Link to="/login"
+                onClick={handleLogout}
+                className="w-full flex items-center px-4 py-2 text-sm text-red-600 hover:bg-gray-100"
+              >
+                <FiLogOut className="mr-3" /> Logout
+              </Link>
             </div>
           )}
         </div>

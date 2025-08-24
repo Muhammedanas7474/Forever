@@ -133,14 +133,7 @@ const Dashboard = () => {
           <h1 className="text-3xl font-bold text-gray-800">Dashboard Overview</h1>
           <p className="text-gray-600">Welcome back! Here's what's happening with your store today.</p>
         </div>
-        <button 
-          onClick={refreshData}
-          className="flex items-center px-4 py-2 bg-indigo-100 text-indigo-700 rounded-lg hover:bg-indigo-200 transition-colors"
-          disabled={isRefreshing}
-        >
-          <FiRefreshCw className={`mr-2 ${isRefreshing ? 'animate-spin' : ''}`} />
-          {isRefreshing ? 'Refreshing...' : 'Refresh Data'}
-        </button>
+
       </div>
 
       {/* Sales Metrics Cards */}

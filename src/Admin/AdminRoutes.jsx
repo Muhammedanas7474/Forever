@@ -4,8 +4,7 @@ import Dashboard from "./Pages/Dashboard";
 import Products from "./Pages/Products";
 import Customers from "./Pages/Customers";
 import Orders from "./Pages/Orders";
-import Analytics from "./Pages/Analytics";
-import Settings from "./Pages/Settings";
+
 
 const AdminRoutes = () => {
   return (
@@ -16,8 +15,7 @@ const AdminRoutes = () => {
         <Route path="products" element={<Products/>}/>
         <Route path="customers" element={<Customers/>}/>
         <Route path="orders" element={<Orders/>}/>
-        <Route path="analytics" element={<Analytics/>}/>
-        <Route path="settings" element={<Settings/>}/>
+        
       </Route>
     </Routes>
   );

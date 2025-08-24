@@ -8,17 +8,20 @@ export default function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  // Load user from localStorage
+  // 🔹 Load user from localStorage on first mount
   useEffect(() => {
     const raw = localStorage.getItem("user");
     if (raw) setUser(JSON.parse(raw));
     setLoading(false);
   }, []);
 
-  // Persist session in localStorage
+  // 🔹 Persist session whenever user changes
   useEffect(() => {
-    if (user) localStorage.setItem("user", JSON.stringify(user));
-    else localStorage.removeItem("user");
+    if (user) {
+      localStorage.setItem("user", JSON.stringify(user));
+    } else {
+      localStorage.removeItem("user");
+    }
   }, [user]);
 
   // --- Register (Default role: "user") ---
@@ -31,8 +34,8 @@ export default function AuthProvider({ children }) {
       name,
       email,
       password,
-      role: "user",    // 👈 default role
-      isBlock: false,  // 👈 new users are not blocked by default
+      role: "user",    // default role
+      isBlock: false,  // not blocked by default
       cart: [],
       orders: [],
       wishlist: [],
@@ -40,7 +43,7 @@ export default function AuthProvider({ children }) {
     };
 
     const res = await axios.post(API, newUser);
-    return res.data; // don’t set session yet, ask them to login
+    return res.data; // don't auto-login, ask user to login
   };
 
   // --- Login ---
@@ -48,6 +51,7 @@ export default function AuthProvider({ children }) {
     const res = await axios.get(
       `${API}?email=${encodeURIComponent(email)}&password=${encodeURIComponent(password)}`
     );
+
     if (!res.data.length) throw new Error("Invalid email or password");
 
     const foundUser = res.data[0];
@@ -57,12 +61,18 @@ export default function AuthProvider({ children }) {
       throw new Error("Your account has been blocked. Contact admin.");
     }
 
+    // ✅ Save in both state and localStorage
     setUser(foundUser);
+    localStorage.setItem("user", JSON.stringify(foundUser));
+
     return foundUser;
   };
 
   // --- Logout ---
-  const logout = () => setUser(null);
+  const logout = () => {
+    setUser(null);
+    localStorage.removeItem("user");
+  };
 
   const value = useMemo(
     () => ({ user, loading, register, login, logout }),

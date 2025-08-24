@@ -10,28 +10,48 @@
       "cart": [],
       "orders": [],
       "wishlist": [],
-      "created_at": "2023-11-15"
+      "addresses": [],
+      "created_at": "2023-11-15",
+      "status": "active"
     },
     {
       "id": "5d49",
       "name": "Muhammed Anas",
       "email": "muhammmedanas247474@gmail.com",
       "password": "12345678",
-      "role": "user"
+      "role": "user",
+      "isBlock": false,
+      "cart": [],
+      "orders": [],
+      "wishlist": [],
+      "addresses": [],
+      "created_at": "2025-08-23T10:00:00Z"
     },
     {
       "id": "336b",
       "name": "diyan",
       "email": "diyan@gmail.com",
       "password": "1234",
-      "role": "user"
+      "role": "user",
+      "isBlock": false,
+      "cart": [],
+      "orders": [],
+      "wishlist": [],
+      "addresses": [],
+      "created_at": "2025-08-23T10:05:00Z"
     },
     {
       "id": "9218",
       "name": "Anas",
       "email": "muhammedanas247474@gmail.com",
       "password": "123456789",
-      "role": "admin"
+      "role": "admin",
+      "isBlock": false,
+      "cart": [],
+      "orders": [],
+      "wishlist": [],
+      "addresses": [],
+      "created_at": "2025-08-23T10:10:00Z"
     },
     {
       "id": "198d10a33d9",
@@ -43,28 +63,106 @@
       "cart": [],
       "orders": [],
       "wishlist": [],
+      "addresses": [],
       "created_at": "2025-08-22T09:09:23.545Z"
+    },
+    {
+      "id": "198db1402e8",
+      "name": "user",
+      "email": "user@gmail.com",
+      "password": "user@gmail.com",
+      "role": "user",
+      "isBlock": false,
+      "cart": [],
+      "orders": [
+        {
+          "id": "1756022263945",
+          "address": {
+            "firstName": "user",
+            "lastName": "name",
+            "email": "user@gmail.com",
+            "street": "user",
+            "city": "user",
+            "state": "user",
+            "pincode": "123456",
+            "country": "user",
+            "phone": "1234567890"
+          },
+          "cart": [
+            {
+              "_id": "aaaab",
+              "name": "Men Round Neck Pure Cotton T-shirt",
+              "size": "L",
+              "price": 200,
+              "quantity": 1,
+              "image": [
+                "https://image.hm.com/assets/hm/6f/4c/6f4c71f03fe1af62989167951943d5836205a10b.jpg?imwidth=1536",
+                "https://image.hm.com/assets/hm/f2/2e/f22eb12ad482725152ee2da2a0045ea559cdadea.jpg?imwidth=2160",
+                "https://image.hm.com/assets/hm/cb/a3/cba3e1420589ed8a2767df27aa4889dd8c6e4ebd.jpg?imwidth=2160"
+              ]
+            }
+          ],
+          "paymentMethod": "cod",
+          "totalAmount": 200,
+          "status": "shipped",
+          "orderDate": "2025-08-24T07:57:43.945Z"
+        },
+        {
+          "id": "1756022652097",
+          "address": {
+            "firstName": "ans",
+            "lastName": "ana",
+            "email": "sadkjh",
+            "street": "adyj",
+            "city": "ajwdv",
+            "state": "avjwd",
+            "pincode": "938274",
+            "country": "ciuakbd",
+            "phone": "1234567890"
+          },
+          "cart": [
+            {
+              "_id": "aaabh",
+              "name": "Women Round Neck Cotton sweater shirt",
+              "size": "XL",
+              "price": 260,
+              "quantity": 1,
+              "image": [
+                "https://image.hm.com/assets/hm/15/1b/151ba65382f2a63df2992b9e7db7ea9e5692d0fa.jpg?imwidth=1536",
+                "https://image.hm.com/assets/hm/c4/07/c407841a018675260116ecef2d1836be736cb431.jpg?imwidth=1536",
+                "https://image.hm.com/assets/hm/e4/ce/e4ce860a07bfc23402e42d63097f9b5c17262cd6.jpg?imwidth=1536",
+                "https://image.hm.com/assets/hm/f5/5e/f55e5578a1f254ab850636ab154b388b327487c2.jpg?imwidth=1536"
+              ]
+            }
+          ],
+          "paymentMethod": "cod",
+          "totalAmount": 260,
+          "status": "pending",
+          "orderDate": "2025-08-24T08:04:12.097Z"
+        }
+      ],
+      "wishlist": [],
+      "created_at": "2025-08-24T07:56:18.536Z"
+    },
+    {
+      "id": "198db3710f5",
+      "name": "admin",
+      "email": "admin@gmail.com",
+      "password": "admin@gmail.com",
+      "role": "admin",
+      "isBlock": false,
+      "cart": [],
+      "orders": [],
+      "wishlist": [],
+      "created_at": "2025-08-24T08:34:35.894Z"
     }
   ],
   "products": [
     {
-      "_id": "aaaaa",
       "name": "Women Round Neck Cotton Top",
-      "description": "A lightweight cotton top",
       "price": 100,
-      "image": [
-        "./Images/products/p_img1.png"
-      ],
-      "category": "Women",
-      "subCategory": "Topwear",
-      "sizes": [
-        "S",
-        "M",
-        "L"
-      ],
-      "date": 20230815,
-      "bestseller": true,
-      "id": "f2f8"
+      "stock": 100,
+      "_id": "f2f8"
     },
     {
       "_id": "aaaab",
@@ -72,10 +170,9 @@
       "description": "Comfortable cotton t-shirt",
       "price": 200,
       "image": [
-        "./Images/products/p_img14.png",
-        "./Images/products/men_tshirt1_2.png",
-        "./images/products/men_tshirt1_3.png",
-        "./images/products/men_tshirt1_4.png"
+        "https://image.hm.com/assets/hm/6f/4c/6f4c71f03fe1af62989167951943d5836205a10b.jpg?imwidth=1536",
+        "https://image.hm.com/assets/hm/f2/2e/f22eb12ad482725152ee2da2a0045ea559cdadea.jpg?imwidth=2160",
+        "https://image.hm.com/assets/hm/cb/a3/cba3e1420589ed8a2767df27aa4889dd8c6e4ebd.jpg?imwidth=2160"
       ],
       "category": "Men",
       "subCategory": "Topwear",
@@ -94,7 +191,7 @@
       "description": "Cute cotton top for girls",
       "price": 220,
       "image": [
-        "./Images/products/p_img1.png"
+        "https://image.hm.com/assets/hm/48/a1/48a1985bbde60ab0b9bb8f59efbbf46ac4d69eac.jpg?imwidth=1536"
       ],
       "category": "Kids",
       "subCategory": "Topwear",
@@ -132,7 +229,7 @@
       "description": "Soft cotton women's top",
       "price": 130,
       "image": [
-        "./Images/products/p_img1.png"
+        "https://image.hm.com/assets/hm/95/75/957505a99adec168defe73a3997266f37088e465.jpg?imwidth=1536"
       ],
       "category": "Women",
       "subCategory": "Topwear",
@@ -146,31 +243,14 @@
       "id": "e2e3"
     },
     {
-      "_id": "aaaaf",
-      "name": "Girls Round Neck Cotton Top",
-      "description": "Casual girls cotton top",
-      "price": 140,
-      "image": [
-        "./Images/products/p_img14.png"
-      ],
-      "category": "Kids",
-      "subCategory": "Topwear",
-      "sizes": [
-        "S",
-        "L",
-        "XL"
-      ],
-      "date": 20230810,
-      "bestseller": true,
-      "id": "5843"
-    },
-    {
       "_id": "aaaag",
       "name": "Men Tapered Fit Flat-Front Trousers",
       "description": "Slim fit tapered trousers",
       "price": 190,
       "image": [
-        "./Images/products/p_img10.png"
+        "https://image.hm.com/assets/hm/d8/18/d8181165b3396c69385c02b90e90c1caaa046a14.jpg?imwidth=1536",
+        "https://image.hm.com/assets/hm/18/3e/183ef06c7316eb418f8d1f3d2c0a26b2cc791613.jpg?imwidth=1536",
+        "https://image.hm.com/assets/hm/cd/a1/cda1427724f4bd71367da5e64c02e865155b370a.jpg?imwidth=1536"
       ],
       "category": "Men",
       "subCategory": "Bottomwear",
@@ -189,7 +269,9 @@
       "description": "Basic cotton t-shirt",
       "price": 140,
       "image": [
-        "/images/products/men_tshirt3.png"
+        "https://image.hm.com/assets/hm/d0/47/d047a59f10d335e2351218f2bb286be6fc0a94b4.jpg?imwidth=1536",
+        "https://image.hm.com/assets/hm/88/73/88730dddd4c8bd353b6f5936fa5d402e32efcca4.jpg?imwidth=1536",
+        "https://image.hm.com/assets/hm/bd/e4/bde4ef42f917ccb678c4ff1d218520ce2f10ff6d.jpg?imwidth=1536"
       ],
       "category": "Men",
       "subCategory": "Topwear",
@@ -209,7 +291,9 @@
       "description": "Girls' everyday cotton top",
       "price": 100,
       "image": [
-        "/images/products/kids_girlstop3.png"
+        "https://image.hm.com/assets/hm/58/a8/58a8ad48c2c20dc720a8cd9c3046d881ec42295f.jpg?imwidth=1536",
+        "https://image.hm.com/assets/hm/77/55/7755984bdd31aa298599f4e1be5eb7637c6ea970.jpg?imwidth=1536",
+        "https://image.hm.com/assets/hm/7b/6e/7b6e40d17544d374249dfdda8322134787827996.jpg?imwidth=1536"
       ],
       "category": "Kids",
       "subCategory": "Topwear",
@@ -228,7 +312,9 @@
       "description": "Comfortable tapered trousers",
       "price": 110,
       "image": [
-        "/images/products/men_trousers2.png"
+        "https://image.hm.com/assets/hm/8b/f5/8bf50fac996abd2abc8008797704b21c93901318.jpg?imwidth=1536",
+        "https://image.hm.com/assets/hm/da/d5/dad57ec0d17e3dd8dc290f7699dde9ed31707bbc.jpg?imwidth=1536",
+        "https://image.hm.com/assets/hm/5b/c6/5bc6e51d932d6f6651a6983e4659f81285c242f4.jpg?imwidth=1536"
       ],
       "category": "Men",
       "subCategory": "Bottomwear",
@@ -242,31 +328,15 @@
       "id": "af76"
     },
     {
-      "_id": "aaaak",
-      "name": "Men Round Neck Pure Cotton T-shirt",
-      "description": "Essential cotton t-shirt",
-      "price": 120,
-      "image": [
-        "/images/products/men_tshirt4.png"
-      ],
-      "category": "Men",
-      "subCategory": "Topwear",
-      "sizes": [
-        "S",
-        "M",
-        "L"
-      ],
-      "date": 20230805,
-      "bestseller": false,
-      "id": "aff4"
-    },
-    {
       "_id": "aaaal",
       "name": "Men Round Neck Pure Cotton T-shirt",
       "description": "Premium cotton t-shirt",
       "price": 150,
       "image": [
-        "/images/products/men_tshirt5.png"
+        "https://image.hm.com/assets/hm/be/a5/bea5d616ee7133b642fcdd93937786faeddbef4f.jpg?imwidth=1536",
+        "https://image.hm.com/assets/hm/d3/1c/d31c99b1e51316929c79d21acd6157493bff21e1.jpg?imwidth=1536",
+        "https://image.hm.com/assets/hm/5d/c4/5dc42471e86a4c893ee000cb30f77f58b977762d.jpg?imwidth=1536",
+        "https://image.hm.com/assets/hm/7a/75/7a75be4e19f42571c5a5eb6c97c1384cde325268.jpg?imwidth=1536"
       ],
       "category": "Men",
       "subCategory": "Topwear",
@@ -281,32 +351,15 @@
       "id": "9538"
     },
     {
-      "_id": "aaaam",
-      "name": "Women Round Neck Cotton Top",
-      "description": "Stylish women's cotton top",
-      "price": 130,
-      "image": [
-        "/images/products/women_top3.png"
-      ],
-      "category": "Women",
-      "subCategory": "Topwear",
-      "sizes": [
-        "S",
-        "M",
-        "L",
-        "XL"
-      ],
-      "date": 20230803,
-      "bestseller": false,
-      "id": "c5c4"
-    },
-    {
       "_id": "aaaan",
       "name": "Boy Round Neck Pure Cotton T-shirt",
       "description": "Boys' comfortable t-shirt",
       "price": 160,
       "image": [
-        "/images/products/kids_boystop1.png"
+        "https://image.hm.com/assets/hm/29/f1/29f16987003455895dac2ca178734f54490bb55b.jpg?imwidth=1536",
+        "https://image.hm.com/assets/hm/ab/01/ab01abaa7e1872f4dea709b89b6d23298db09a43.jpg?imwidth=1536",
+        "https://image.hm.com/assets/hm/71/6c/716c69fd38a09dabb97a75c89e02c67fe020bffe.jpg?imwidth=1536",
+        "https://image.hm.com/assets/hm/36/2c/362c70ca60729988b12e477554a372e4a1326a96.jpg?imwidth=1536"
       ],
       "category": "Kids",
       "subCategory": "Topwear",
@@ -321,32 +374,15 @@
       "id": "24d2"
     },
     {
-      "_id": "aaaao",
-      "name": "Men Tapered Fit Flat-Front Trousers",
-      "description": "Modern fit trousers",
-      "price": 140,
-      "image": [
-        "/images/products/men_trousers3.png"
-      ],
-      "category": "Men",
-      "subCategory": "Bottomwear",
-      "sizes": [
-        "S",
-        "M",
-        "L",
-        "XL"
-      ],
-      "date": 20230801,
-      "bestseller": false,
-      "id": "9fb7"
-    },
-    {
       "_id": "aaaap",
       "name": "Girls Round Neck Cotton Top",
       "description": "Girls' fashion top",
       "price": 170,
       "image": [
-        "/images/products/kids_girlstop4.png"
+        "https://image.hm.com/assets/hm/8e/b0/8eb02e328a681b6efc2ad2b884b4ae0e32ee5dae.jpg?imwidth=1536",
+        "https://image.hm.com/assets/hm/31/50/31501d6b546933f9c49ac34561ebf5275cb58a18.jpg?imwidth=1536",
+        "https://image.hm.com/assets/hm/08/4c/084c55f71521c1cfbe0e24252e994b7467f48ce7.jpg?imwidth=1536",
+        "https://image.hm.com/assets/hm/db/cb/dbcb9b7a792e24087bfcef94ae8ecc73c588dce5.jpg?imwidth=1536"
       ],
       "category": "Kids",
       "subCategory": "Topwear",
@@ -361,72 +397,15 @@
       "id": "a5f3"
     },
     {
-      "_id": "aaaaq",
-      "name": "Men Tapered Fit Flat-Front Trousers",
-      "description": "Classic fit trousers",
-      "price": 150,
-      "image": [
-        "/images/products/men_trousers4.png"
-      ],
-      "category": "Men",
-      "subCategory": "Bottomwear",
-      "sizes": [
-        "S",
-        "M",
-        "L",
-        "XL"
-      ],
-      "date": 20230730,
-      "bestseller": false,
-      "id": "6f25"
-    },
-    {
-      "_id": "aaaar",
-      "name": "Boy Round Neck Pure Cotton T-shirt",
-      "description": "Boys' casual t-shirt",
-      "price": 180,
-      "image": [
-        "/images/products/kids_boystop2.png"
-      ],
-      "category": "Kids",
-      "subCategory": "Topwear",
-      "sizes": [
-        "S",
-        "M",
-        "L",
-        "XL"
-      ],
-      "date": 20230729,
-      "bestseller": false,
-      "id": "028c"
-    },
-    {
-      "_id": "aaaas",
-      "name": "Boy Round Neck Pure Cotton T-shirt",
-      "description": "Boys' everyday t-shirt",
-      "price": 160,
-      "image": [
-        "/images/products/kids_boystop3.png"
-      ],
-      "category": "Kids",
-      "subCategory": "Topwear",
-      "sizes": [
-        "S",
-        "M",
-        "L",
-        "XL"
-      ],
-      "date": 20230728,
-      "bestseller": false,
-      "id": "9b91"
-    },
-    {
       "_id": "aaaat",
       "name": "Women Palazzo Pants with Waist Belt",
       "description": "Stylish palazzo pants",
       "price": 190,
       "image": [
-        "/images/products/women_pants1.png"
+        "https://image.hm.com/assets/hm/b1/8d/b18d6561ff0f4e839cf65813023c5ad9d185e802.jpg?imwidth=1536",
+        "https://image.hm.com/assets/hm/a5/13/a5132e3737a293930d06be79870941ed9a2edfdd.jpg?imwidth=1536",
+        "https://image.hm.com/assets/hm/48/ed/48ed53b339214adc41f47df7de4abb4addf112e7.jpg?imwidth=1536",
+        "https://image.hm.com/assets/hm/9f/c5/9fc502c34ca5c3e1e9b05c24d7b06caf6d9c3769.jpg?imwidth=1536"
       ],
       "category": "Women",
       "subCategory": "Bottomwear",
@@ -446,7 +425,10 @@
       "description": "Comfortable zip-front jacket",
       "price": 170,
       "image": [
-        "/images/products/women_jacket1.png"
+        "https://image.hm.com/assets/hm/96/98/9698d97a902a66c7e16fd12f87c690e51814e549.jpg?imwidth=1536",
+        "https://image.hm.com/assets/hm/f2/e2/f2e2ba885631975ee085b6cab5dcdeefe43753a0.jpg?imwidth=1536",
+        "https://image.hm.com/assets/hm/b0/24/b02478d4e5fd586e1fa80b86bc92cfede4ee18ad.jpg?imwidth=1536",
+        "https://image.hm.com/assets/hm/96/b5/96b5f09c0b59e43304b8f017c0ff07f5dd5cf535.jpg?imwidth=1536"
       ],
       "category": "Women",
       "subCategory": "Winterwear",
@@ -461,132 +443,14 @@
       "id": "ca92"
     },
     {
-      "_id": "aaaav",
-      "name": "Women Palazzo Pants with Waist Belt",
-      "description": "Fashionable palazzo pants",
-      "price": 200,
-      "image": [
-        "/images/products/women_pants2.png"
-      ],
-      "category": "Women",
-      "subCategory": "Bottomwear",
-      "sizes": [
-        "S",
-        "M",
-        "L",
-        "XL"
-      ],
-      "date": 20230725,
-      "bestseller": false,
-      "id": "7609"
-    },
-    {
-      "_id": "aaaaw",
-      "name": "Boy Round Neck Pure Cotton T-shirt",
-      "description": "Boys' premium t-shirt",
-      "price": 180,
-      "image": [
-        "/images/products/kids_boystop4.png"
-      ],
-      "category": "Kids",
-      "subCategory": "Topwear",
-      "sizes": [
-        "S",
-        "M",
-        "L",
-        "XL"
-      ],
-      "date": 20230724,
-      "bestseller": false,
-      "id": "bde1"
-    },
-    {
-      "_id": "aaaax",
-      "name": "Boy Round Neck Pure Cotton T-shirt",
-      "description": "Boys' stylish t-shirt",
-      "price": 210,
-      "image": [
-        "/images/products/kids_boystop5.png"
-      ],
-      "category": "Kids",
-      "subCategory": "Topwear",
-      "sizes": [
-        "S",
-        "M",
-        "L",
-        "XL"
-      ],
-      "date": 20230723,
-      "bestseller": false,
-      "id": "74a4"
-    },
-    {
-      "_id": "aaaay",
-      "name": "Girls Round Neck Cotton Top",
-      "description": "Girls' premium top",
-      "price": 190,
-      "image": [
-        "/images/products/kids_girlstop5.png"
-      ],
-      "category": "Kids",
-      "subCategory": "Topwear",
-      "sizes": [
-        "S",
-        "M",
-        "L",
-        "XL"
-      ],
-      "date": 20230722,
-      "bestseller": false,
-      "id": "8cdf"
-    },
-    {
-      "_id": "aaaaz",
-      "name": "Women Zip-Front Relaxed Fit Jacket",
-      "description": "Warm zip-front jacket",
-      "price": 220,
-      "image": [
-        "/images/products/women_jacket2.png"
-      ],
-      "category": "Women",
-      "subCategory": "Winterwear",
-      "sizes": [
-        "S",
-        "M",
-        "L",
-        "XL"
-      ],
-      "date": 20230721,
-      "bestseller": false,
-      "id": "0171"
-    },
-    {
-      "_id": "aaaba",
-      "name": "Girls Round Neck Cotton Top",
-      "description": "Girls' soft cotton top",
-      "price": 200,
-      "image": [
-        "/images/products/kids_girlstop6.png"
-      ],
-      "category": "Kids",
-      "subCategory": "Topwear",
-      "sizes": [
-        "S",
-        "M",
-        "L",
-        "XL"
-      ],
-      "date": 20230720,
-      "bestseller": false,
-      "id": "c3ea"
-    },
-    {
       "_id": "aaabb",
       "name": "Men Slim Fit Relaxed Denim Jacket",
       "description": "Slim fit denim jacket",
       "price": 230,
       "image": [
-        "/images/products/men_jacket1.png"
+        "https://image.hm.com/assets/hm/04/13/0413f5010ec537b8dc3c3e4779658e0b7c4ac7f3.jpg?imwidth=1536",
+        "https://image.hm.com/assets/hm/dd/60/dd60a3b085cf0be0b245527645715ae507e3a2ec.jpg?imwidth=1536",
+        "https://image.hm.com/assets/hm/c6/f2/c6f26e00d1681cc6a410cc954cc6eb1f84fcc2e8.jpg?imwidth=1536"
       ],
       "category": "Men",
       "subCategory": "Winterwear",
@@ -606,7 +470,9 @@
       "description": "Women's comfortable top",
       "price": 210,
       "image": [
-        "/images/products/women_top4.png"
+        "https://image.hm.com/assets/hm/09/d8/09d8db714699cc2d126607cad931f74f5a062e69.jpg?imwidth=1536",
+        "https://image.hm.com/assets/hm/c0/97/c097e279a81bd8e2409b7262c57ffbc65f2c7834.jpg?imwidth=1536",
+        "https://image.hm.com/assets/hm/5f/b8/5fb88877e42de18b604e4088f95f7487e2ecb075.jpg?imwidth=1536"
       ],
       "category": "Women",
       "subCategory": "Topwear",
@@ -622,11 +488,13 @@
     },
     {
       "_id": "aaabd",
-      "name": "Girls Round Neck Cotton Top",
+      "name": "Girls ziped hoodie",
       "description": "Girls' trendy top",
       "price": 240,
       "image": [
-        "/images/products/kids_girlstop7.png"
+        "https://image.hm.com/assets/hm/f1/f9/f1f96a85a7e5e8e80568f6e193678e3a522a3321.jpg?imwidth=1536",
+        "https://image.hm.com/assets/hm/56/fc/56fc0d3f85363c4ead6b7fd613ea90eb19f1f1f3.jpg?imwidth=1536",
+        "https://image.hm.com/assets/hm/56/a5/56a5d81dc218a6dd3e1e5061c3ed8f8387ba4753.jpg?imwidth=1536"
       ],
       "category": "Kids",
       "subCategory": "Topwear",
@@ -641,32 +509,15 @@
       "id": "1a77"
     },
     {
-      "_id": "aaabe",
-      "name": "Men Round Neck Pure Cotton T-shirt",
-      "description": "Men's classic t-shirt",
-      "price": 220,
-      "image": [
-        "/images/products/men_tshirt6.png"
-      ],
-      "category": "Men",
-      "subCategory": "Topwear",
-      "sizes": [
-        "S",
-        "M",
-        "L",
-        "XL"
-      ],
-      "date": 20230716,
-      "bestseller": false,
-      "id": "742f"
-    },
-    {
       "_id": "aaabf",
-      "name": "Men Round Neck Pure Cotton T-shirt",
+      "name": "Men Pure Cotton T-shirt",
       "description": "Men's premium t-shirt",
       "price": 250,
       "image": [
-        "/images/products/men_tshirt7.png"
+        "https://image.hm.com/assets/hm/fb/d1/fbd1018b126bd6ae61f03958c5f3bc0a6a6f7fcb.jpg?imwidth=1536",
+        "https://image.hm.com/assets/hm/97/0b/970b74efec4976073e9c371393a8a32e6b73cfaa.jpg?imwidth=1536",
+        "https://image.hm.com/assets/hm/33/bd/33bd12dfed08a6756145c0df81ec7d9dd3fbf5a2.jpg?imwidth=1536",
+        "https://image.hm.com/assets/hm/16/04/160442963e9f2b232affff314920d8165a451c0f.jpg?imwidth=1536"
       ],
       "category": "Men",
       "subCategory": "Topwear",
@@ -681,32 +532,15 @@
       "id": "92ee"
     },
     {
-      "_id": "aaabg",
-      "name": "Girls Round Neck Cotton Top",
-      "description": "Girls' soft everyday top",
-      "price": 230,
-      "image": [
-        "/images/products/kids_girlstop8.png"
-      ],
-      "category": "Kids",
-      "subCategory": "Topwear",
-      "sizes": [
-        "S",
-        "M",
-        "L",
-        "XL"
-      ],
-      "date": 20230714,
-      "bestseller": false,
-      "id": "2287"
-    },
-    {
       "_id": "aaabh",
-      "name": "Women Round Neck Cotton Top",
+      "name": "Women Round Neck Cotton sweater shirt",
       "description": "Women's stylish top",
       "price": 260,
       "image": [
-        "/images/products/women_top5.png"
+        "https://image.hm.com/assets/hm/15/1b/151ba65382f2a63df2992b9e7db7ea9e5692d0fa.jpg?imwidth=1536",
+        "https://image.hm.com/assets/hm/c4/07/c407841a018675260116ecef2d1836be736cb431.jpg?imwidth=1536",
+        "https://image.hm.com/assets/hm/e4/ce/e4ce860a07bfc23402e42d63097f9b5c17262cd6.jpg?imwidth=1536",
+        "https://image.hm.com/assets/hm/f5/5e/f55e5578a1f254ab850636ab154b388b327487c2.jpg?imwidth=1536"
       ],
       "category": "Women",
       "subCategory": "Topwear",
@@ -726,7 +560,9 @@
       "description": "Women's cozy jacket",
       "price": 240,
       "image": [
-        "/images/products/women_jacket3.png"
+        "https://image.hm.com/assets/hm/05/97/0597d02961626720b23e2439045f9af83c5a8751.jpg?imwidth=1536",
+        "https://image.hm.com/assets/hm/ee/25/ee25df3a64bb7ee79fe55661a0b37ec60c1ad53b.jpg?imwidth=1536",
+        "https://image.hm.com/assets/hm/12/f7/12f7feb281b193a988734070e1168d23afe3a3c7.jpg?imwidth=1536"
       ],
       "category": "Women",
       "subCategory": "Winterwear",
@@ -741,72 +577,15 @@
       "id": "a030"
     },
     {
-      "_id": "aaabj",
-      "name": "Women Zip-Front Relaxed Fit Jacket",
-      "description": "Women's warm jacket",
-      "price": 270,
-      "image": [
-        "/images/products/women_jacket4.png"
-      ],
-      "category": "Women",
-      "subCategory": "Winterwear",
-      "sizes": [
-        "S",
-        "M",
-        "L",
-        "XL"
-      ],
-      "date": 20230711,
-      "bestseller": false,
-      "id": "e91d"
-    },
-    {
-      "_id": "aaabk",
-      "name": "Women Round Neck Cotton Top",
-      "description": "Women's everyday top",
-      "price": 250,
-      "image": [
-        "/images/products/women_top6.png"
-      ],
-      "category": "Women",
-      "subCategory": "Topwear",
-      "sizes": [
-        "S",
-        "M",
-        "L",
-        "XL"
-      ],
-      "date": 20230710,
-      "bestseller": false,
-      "id": "4115"
-    },
-    {
-      "_id": "aaabl",
-      "name": "Men Round Neck Pure Cotton T-shirt",
-      "description": "Men's essential t-shirt",
-      "price": 280,
-      "image": [
-        "/images/products/men_tshirt8.png"
-      ],
-      "category": "Men",
-      "subCategory": "Topwear",
-      "sizes": [
-        "S",
-        "M",
-        "L",
-        "XL"
-      ],
-      "date": 20230709,
-      "bestseller": false,
-      "id": "8d72"
-    },
-    {
       "_id": "aaabm",
       "name": "Men Printed Plain Cotton Shirt",
       "description": "Men's printed shirt",
       "price": 260,
       "image": [
-        "/images/products/men_shirt1.png"
+        "https://image.hm.com/assets/hm/d5/5c/d55c9689d4bd2f17bdbb1be815a83a7ab5034ff6.jpg?imwidth=1536",
+        "https://image.hm.com/assets/hm/c1/2a/c12afc08baa1e702e5a0889ec1e9edf9e937c712.jpg?imwidth=1536",
+        "https://image.hm.com/assets/hm/f4/9c/f49cc664ff4131f439ebd147664d256c98c289ff.jpg?imwidth=1536",
+        "https://image.hm.com/assets/hm/58/91/5891961e83d49bdf089aba8e015487b85e7edbfe.jpg?imwidth=1536"
       ],
       "category": "Men",
       "subCategory": "Topwear",
@@ -826,7 +605,10 @@
       "description": "Men's stylish denim jacket",
       "price": 290,
       "image": [
-        "/images/products/men_jacket2.png"
+        "https://image.hm.com/assets/hm/e1/34/e134f1aba4bd07a92625b0c75a9f7be87a38d827.jpg?imwidth=1536",
+        "https://image.hm.com/assets/hm/3b/9a/3b9abaea173f79e677c9fcca848ffd6ed981f315.jpg?imwidth=1536",
+        "https://image.hm.com/assets/hm/7a/81/7a812399b1b8caa5e3c93b04d969cccb26b6f053.jpg?imwidth=1536",
+        "https://image.hm.com/assets/hm/6c/50/6c50c4ade6570f7f28f85feddfb093118fcad25a.jpg?imwidth=1536"
       ],
       "category": "Men",
       "subCategory": "Winterwear",
@@ -841,32 +623,15 @@
       "id": "ec86"
     },
     {
-      "_id": "aaabo",
-      "name": "Men Round Neck Pure Cotton T-shirt",
-      "description": "Men's comfortable t-shirt",
-      "price": 270,
-      "image": [
-        "/images/products/men_tshirt9.png"
-      ],
-      "category": "Men",
-      "subCategory": "Topwear",
-      "sizes": [
-        "S",
-        "M",
-        "L",
-        "XL"
-      ],
-      "date": 20230706,
-      "bestseller": false,
-      "id": "a095"
-    },
-    {
       "_id": "aaabp",
       "name": "Boy Round Neck Pure Cotton T-shirt",
       "description": "Boys' soft cotton t-shirt",
       "price": 300,
       "image": [
-        "/images/products/kids_boystop6.png"
+        "https://image.hm.com/assets/hm/60/cd/60cd0ffb0aae2b01c6bfc531f3bf67d5e9c11be5.jpg?imwidth=1536",
+        "https://image.hm.com/assets/hm/cb/91/cb91f7a226c7e8161ccde67f337aa043b2a461df.jpg?imwidth=1536",
+        "https://image.hm.com/assets/hm/4e/3c/4e3c8d605c760e930e23aa3748e1cbdefc98ffd7.jpg?imwidth=1536",
+        "https://image.hm.com/assets/hm/67/ef/67efc9724da7bcbb7714895565b096ccf116e215.jpg?imwidth=1536"
       ],
       "category": "Kids",
       "subCategory": "Topwear",
@@ -881,32 +646,15 @@
       "id": "4673"
     },
     {
-      "_id": "aaabq",
-      "name": "Kid Tapered Slim Fit Trouser",
-      "description": "Kids' slim fit trousers",
-      "price": 280,
-      "image": [
-        "/images/products/kids_trousers1.png"
-      ],
-      "category": "Kids",
-      "subCategory": "Bottomwear",
-      "sizes": [
-        "S",
-        "M",
-        "L",
-        "XL"
-      ],
-      "date": 20230704,
-      "bestseller": false,
-      "id": "00db"
-    },
-    {
       "_id": "aaabr",
-      "name": "Women Zip-Front Relaxed Fit Jacket",
+      "name": "Women Front Relaxed Fit Jacket",
       "description": "Women's fashionable jacket",
       "price": 310,
       "image": [
-        "/images/products/women_jacket5.png"
+        "https://image.hm.com/assets/hm/91/1b/911b62b3fb5572ad956e53bb9d124561bd604a0a.jpg?imwidth=1536",
+        "https://image.hm.com/assets/hm/f8/a8/f8a8a6cdc037e0d857370b8b12512dfd79a8e655.jpg?imwidth=1536",
+        "https://image.hm.com/assets/hm/90/09/9009a0dd99e61f389a172127c6504cd65d1aab61.jpg?imwidth=1536",
+        "https://image.hm.com/assets/hm/c7/e8/c7e890dc7428c68724dcfa8b67b2ef0fba65639f.jpg?imwidth=1536"
       ],
       "category": "Women",
       "subCategory": "Winterwear",
@@ -921,350 +669,50 @@
       "id": "b84c"
     },
     {
-      "_id": "aaabs",
-      "name": "Men Slim Fit Relaxed Denim Jacket",
-      "description": "Men's classic denim jacket",
-      "price": 290,
-      "image": [
-        "/images/products/men_jacket3.png"
-      ],
+      "_id": "4fce",
+      "name": "Men Jeans",
+      "price": 299,
+      "stock": 30,
+      "image": "https://image.hm.com/assets/hm/e1/34/e134f1aba4bd07a92625b0c75a9f7be87a38d827.jpg?imwidth=1536,https://image.hm.com/assets/hm/3b/9a/3b9abaea173f79e677c9fcca848ffd6ed981f315.jpg?imwidth=1536,https://image.hm.com/assets/hm/7a/81/7a812399b1b8caa5e3c93b04d969cccb26b6f053.jpg?imwidth=1536,https://image.hm.com/assets/hm/6c/50/6c50c4ade6570f7f28f85feddfb093118fcad25a.jpg?imwidth=1536",
       "category": "Men",
-      "subCategory": "Winterwear",
-      "sizes": [
-        "S",
-        "M",
-        "L",
-        "XL"
-      ],
-      "date": 20230702,
-      "bestseller": false,
-      "id": "0c55"
+      "description": "Good Quality"
     },
     {
-      "_id": "aaabt",
-      "name": "Men Slim Fit Relaxed Denim Jacket",
-      "description": "Men's modern denim jacket",
-      "price": 320,
+      "id": "8ab2",
+      "_id": "p1756028040795",
+      "name": "product 2",
+      "description": "kjhgvc",
+      "price": 1234,
+      "image": [],
+      "category": "edfv",
+      "subCategory": "fgb",
+      "sizes": [
+        "s",
+        "m",
+        "l",
+        "xl"
+      ],
+      "date": 20250824,
+      "bestseller": true,
+      "stock": 345
+    },
+    {
+      "_id": "2003",
+      "name": "shirt",
+      "description": "good",
+      "price": 2345,
       "image": [
-        "/images/products/men_jacket4.png"
+        "https://image.hm.com/assets/hm/4d/e6/4de6b47848ac1be736477889365841a530525463.jpg?imwidth=1536"
       ],
-      "category": "Men",
-      "subCategory": "Winterwear",
+      "category": "fgh",
+      "subCategory": "jhg",
       "sizes": [
         "S",
         "M",
-        "L",
-        "XL"
+        "L"
       ],
-      "date": 20230701,
       "bestseller": false,
-      "id": "23f2"
-    },
-    {
-      "_id": "aaabu",
-      "name": "Kid Tapered Slim Fit Trouser",
-      "description": "Kids' comfortable trousers",
-      "price": 300,
-      "image": [
-        "/images/products/kids_trousers2.png"
-      ],
-      "category": "Kids",
-      "subCategory": "Bottomwear",
-      "sizes": [
-        "S",
-        "M",
-        "L",
-        "XL"
-      ],
-      "date": 20230630,
-      "bestseller": false,
-      "id": "2f86"
-    },
-    {
-      "_id": "aaabv",
-      "name": "Men Slim Fit Relaxed Denim Jacket",
-      "description": "Men's premium denim jacket",
-      "price": 330,
-      "image": [
-        "/images/products/men_jacket5.png"
-      ],
-      "category": "Men",
-      "subCategory": "Winterwear",
-      "sizes": [
-        "S",
-        "M",
-        "L",
-        "XL"
-      ],
-      "date": 20230629,
-      "bestseller": false,
-      "id": "97ed"
-    },
-    {
-      "_id": "aaabw",
-      "name": "Kid Tapered Slim Fit Trouser",
-      "description": "Kids' stylish trousers",
-      "price": 310,
-      "image": [
-        "/images/products/kids_trousers3.png"
-      ],
-      "category": "Kids",
-      "subCategory": "Bottomwear",
-      "sizes": [
-        "S",
-        "M",
-        "L",
-        "XL"
-      ],
-      "date": 20230628,
-      "bestseller": false,
-      "id": "6f65"
-    },
-    {
-      "_id": "aaabx",
-      "name": "Kid Tapered Slim Fit Trouser",
-      "description": "Kids' everyday trousers",
-      "price": 340,
-      "image": [
-        "/images/products/kids_trousers4.png"
-      ],
-      "category": "Kids",
-      "subCategory": "Bottomwear",
-      "sizes": [
-        "S",
-        "M",
-        "L",
-        "XL"
-      ],
-      "date": 20230627,
-      "bestseller": false,
-      "id": "d442"
-    },
-    {
-      "_id": "aaaby",
-      "name": "Women Zip-Front Relaxed Fit Jacket",
-      "description": "Women's premium jacket",
-      "price": 320,
-      "image": [
-        "/images/products/women_jacket6.png"
-      ],
-      "category": "Women",
-      "subCategory": "Winterwear",
-      "sizes": [
-        "S",
-        "M",
-        "L",
-        "XL"
-      ],
-      "date": 20230626,
-      "bestseller": false,
-      "id": "d9b2"
-    },
-    {
-      "_id": "aaabz",
-      "name": "Men Slim Fit Relaxed Denim Jacket",
-      "description": "Men's essential denim jacket",
-      "price": 350,
-      "image": [
-        "./Images/products/p_img52.png"
-      ],
-      "category": "Men",
-      "subCategory": "Winterwear",
-      "sizes": [
-        "S",
-        "M",
-        "L",
-        "XL"
-      ],
-      "date": 20230625,
-      "bestseller": false,
-      "id": "e7f7"
-    }
-  ],
-  "orders": [
-    {
-      "id": "1",
-      "firstName": "John",
-      "lastName": "Doe",
-      "email": "john@example.com",
-      "street": "123 Main Street",
-      "city": "New York",
-      "state": "NY",
-      "pincode": "10001",
-      "country": "USA",
-      "phone": "1234567890",
-      "paymentMethod": "cod",
-      "cart": [
-        {
-          "_id": "p1",
-          "name": "Men's T-Shirt",
-          "size": "M",
-          "price": 25,
-          "quantity": 2
-        }
-      ],
-      "totalAmount": 50,
-      "status": "pending",
-      "orderDate": "2025-08-19T12:00:00.000Z"
-    },
-    {
-      "id": "d92d",
-      "firstName": "anas",
-      "lastName": "muhammed",
-      "email": "muhammedanas247474@gmail.com",
-      "street": "kunnathpalam",
-      "city": "calicut",
-      "state": "kerala",
-      "pincode": "1234",
-      "country": "india",
-      "phone": "123456789",
-      "cart": [
-        {
-          "_id": "aaaac",
-          "name": "Girls Round Neck Cotton Top",
-          "size": "XL",
-          "price": 220,
-          "quantity": 1
-        },
-        {
-          "_id": "aaaac",
-          "name": "Girls Round Neck Cotton Top",
-          "size": "L",
-          "price": 220,
-          "quantity": 1
-        },
-        {
-          "_id": "aaaac",
-          "name": "Girls Round Neck Cotton Top",
-          "size": "S",
-          "price": 220,
-          "quantity": 1
-        },
-        {
-          "_id": "aaaac",
-          "name": "Girls Round Neck Cotton Top",
-          "size": "M",
-          "price": 220,
-          "quantity": 1
-        }
-      ],
-      "paymentMethod": "cod",
-      "totalAmount": 880,
-      "status": "pending",
-      "orderDate": "2025-08-20T10:12:53.452Z"
-    },
-    {
-      "id": "6de6",
-      "firstName": "anas",
-      "lastName": "muhammed",
-      "email": "muhammedanas247474@gmail.com",
-      "street": "kunnathpalam",
-      "city": "calicut",
-      "state": "kerala",
-      "pincode": "1234",
-      "country": "India",
-      "phone": "123456789",
-      "cart": [
-        {
-          "_id": "aaaac",
-          "name": "Girls Round Neck Cotton Top",
-          "size": "XL",
-          "price": 220,
-          "quantity": 1
-        },
-        {
-          "_id": "aaaac",
-          "name": "Girls Round Neck Cotton Top",
-          "size": "L",
-          "price": 220,
-          "quantity": 1
-        },
-        {
-          "_id": "aaaac",
-          "name": "Girls Round Neck Cotton Top",
-          "size": "S",
-          "price": 220,
-          "quantity": 1
-        },
-        {
-          "_id": "aaaac",
-          "name": "Girls Round Neck Cotton Top",
-          "size": "M",
-          "price": 220,
-          "quantity": 1
-        }
-      ],
-      "paymentMethod": "cod",
-      "totalAmount": 880,
-      "status": "pending",
-      "orderDate": "2025-08-20T10:43:16.311Z"
-    },
-    {
-      "id": "565a",
-      "firstName": "anas",
-      "lastName": "muhammed",
-      "email": "muhammedanas247474@gmail.com",
-      "street": "kunnathpalam",
-      "city": "calicut",
-      "state": "kerala",
-      "pincode": "1234",
-      "country": "India",
-      "phone": "123456789",
-      "cart": [
-        {
-          "_id": "aaaag",
-          "name": "Men Tapered Fit Flat-Front Trousers",
-          "size": "L",
-          "price": 190,
-          "quantity": 1
-        }
-      ],
-      "paymentMethod": "cod",
-      "totalAmount": 190,
-      "status": "pending",
-      "orderDate": "2025-08-20T12:28:43.932Z"
-    },
-    {
-      "id": "7c4c",
-      "firstName": "",
-      "lastName": "",
-      "email": "",
-      "street": "",
-      "city": "",
-      "state": "",
-      "pincode": "",
-      "country": "",
-      "phone": "",
-      "cart": [],
-      "paymentMethod": "cod",
-      "totalAmount": 0,
-      "status": "pending",
-      "orderDate": "2025-08-22T04:06:31.591Z"
-    },
-    {
-      "id": "9559",
-      "firstName": "",
-      "lastName": "",
-      "email": "",
-      "street": "",
-      "city": "",
-      "state": "",
-      "pincode": "",
-      "country": "",
-      "phone": "",
-      "cart": [
-        {
-          "_id": "aaaab",
-          "name": "Men Round Neck Pure Cotton T-shirt",
-          "size": "L",
-          "price": 200,
-          "quantity": 1
-        }
-      ],
-      "paymentMethod": "stripe",
-      "totalAmount": 200,
-      "status": "pending",
-      "orderDate": "2025-08-22T08:57:45.573Z"
+      "stock": 345
     }
   ]
 }

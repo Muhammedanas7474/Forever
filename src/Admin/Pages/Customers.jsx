@@ -1,119 +1,74 @@
-import React , { useState, useContext, useEffect } from 'react';
-import { ShopContext } from '../../context/ShopContext';
-import { 
-  FiUsers, 
-  FiSearch, 
-  FiMail, 
-  FiPhone, 
-  FiMapPin,
-  FiCalendar,
-  FiEdit,
+// src/pages/admin/Customers.jsx
+import React, { useEffect, useState } from "react";
+import {
+  FiUsers,
+  FiSearch,
   FiTrash2,
   FiPlus,
-  FiShoppingBag,
-  FiDollarSign,
-} from 'react-icons/fi';
+  FiLock,
+  FiUnlock,
+} from "react-icons/fi";
+import axios from "axios";
 
 const Customers = () => {
-  const { products, loading } = useContext(ShopContext);
   const [customers, setCustomers] = useState([]);
   const [filteredCustomers, setFilteredCustomers] = useState([]);
-  const [searchTerm, setSearchTerm] = useState('');
+  const [searchTerm, setSearchTerm] = useState("");
   const [selectedCustomer, setSelectedCustomer] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
-  // Generate mock customer data based on your products
-  useEffect(() => {
-    if (products && products.length > 0) {
-      generateCustomerData();
+  // Fetch users
+  const fetchCustomers = async () => {
+    try {
+      const res = await axios.get("http://localhost:3000/users");
+      setCustomers(res.data);
+      setFilteredCustomers(res.data);
+      setIsLoading(false);
+    } catch (err) {
+      console.error("Error fetching customers:", err);
+      setIsLoading(false);
     }
-  }, [products]);
-
-  const generateCustomerData = () => {
-    // This would normally come from your API
-    const mockCustomers = [
-      {
-        id: 1,
-        name: 'Sarah Johnson',
-        email: 'sarah.johnson@example.com',
-        phone: '+1 (555) 123-4567',
-        location: 'New York, USA',
-        joinDate: '2023-03-15',
-        orders: 12,
-        totalSpent: 1245.50,
-        lastOrder: '2023-10-28'
-      },
-      {
-        id: 2,
-        name: 'Michael Chen',
-        email: 'michael.chen@example.com',
-        phone: '+1 (555) 987-6543',
-        location: 'San Francisco, USA',
-        joinDate: '2023-05-22',
-        orders: 8,
-        totalSpent: 876.25,
-        lastOrder: '2023-10-25'
-      },
-      {
-        id: 3,
-        name: 'Emma Rodriguez',
-        email: 'emma.rodriguez@example.com',
-        phone: '+1 (555) 456-7890',
-        location: 'Miami, USA',
-        joinDate: '2023-01-10',
-        orders: 15,
-        totalSpent: 2100.00,
-        lastOrder: '2023-10-27'
-      },
-      {
-        id: 4,
-        name: 'James Wilson',
-        email: 'james.wilson@example.com',
-        phone: '+44 20 7946 0958',
-        location: 'London, UK',
-        joinDate: '2023-02-28',
-        orders: 5,
-        totalSpent: 450.75,
-        lastOrder: '2023-10-20'
-      },
-      {
-        id: 5,
-        name: 'Sophia Kim',
-        email: 'sophia.kim@example.com',
-        phone: '+82 2 312 3456',
-        location: 'Seoul, South Korea',
-        joinDate: '2023-07-12',
-        orders: 9,
-        totalSpent: 1120.30,
-        lastOrder: '2023-10-29'
-      }
-    ];
-
-    setCustomers(mockCustomers);
-    setFilteredCustomers(mockCustomers);
-    setIsLoading(false);
   };
 
-  // Filter customers based on search term
   useEffect(() => {
-    if (searchTerm === '') {
+    fetchCustomers();
+  }, []);
+
+  // Search filter
+  useEffect(() => {
+    if (searchTerm === "") {
       setFilteredCustomers(customers);
     } else {
-      const filtered = customers.filter(customer =>
-        customer.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        customer.email.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        customer.location.toLowerCase().includes(searchTerm.toLowerCase())
+      const filtered = customers.filter(
+        (c) =>
+          c.name?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          c.email?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          c.role?.toLowerCase().includes(searchTerm.toLowerCase())
       );
       setFilteredCustomers(filtered);
     }
   }, [searchTerm, customers]);
 
-  const handleViewCustomer = (customer) => {
-    setSelectedCustomer(customer);
+  const handleDeleteCustomer = async (id) => {
+    if (window.confirm("Delete this customer?")) {
+      try {
+        await axios.delete(`http://localhost:3000/users/${id}`);
+        fetchCustomers();
+      } catch (err) {
+        console.error("Error deleting customer:", err);
+      }
+    }
   };
 
-  const handleCloseDetails = () => {
-    setSelectedCustomer(null);
+  const toggleBlockCustomer = async (customer) => {
+    try {
+      await axios.patch(`http://localhost:3000/users/${customer.id}`, {
+        isBlock: !customer.isBlock,
+      });
+      fetchCustomers();
+    } catch (err) {
+      console.error("Error updating block status:", err);
+    }
   };
 
   if (isLoading) {
@@ -126,15 +81,18 @@ const Customers = () => {
 
   return (
     <div>
+      {/* Header */}
       <div className="flex justify-between items-center mb-6">
-        <h1 className="text-2xl font-bold text-gray-800">Customer Management</h1>
+        <h1 className="text-2xl font-bold text-gray-800">
+          Customer Management
+        </h1>
         <div className="flex space-x-4">
           <div className="relative">
             <FiSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
             <input
               type="text"
               placeholder="Search customers..."
-              className="pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              className="pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-indigo-500"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
             />
@@ -145,104 +103,57 @@ const Customers = () => {
         </div>
       </div>
 
-      {/* Customer Stats Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-        <div className="bg-white rounded-xl shadow-md p-6">
-          <div className="flex items-center">
-            <div className="p-3 rounded-lg bg-blue-100 text-blue-600">
-              <FiUsers className="h-6 w-6" />
-            </div>
-            <div className="ml-4">
-              <h2 className="text-gray-500 text-sm">Total Customers</h2>
-              <p className="text-2xl font-bold">{customers.length}</p>
-            </div>
-          </div>
-          <div className="mt-4 flex items-center text-sm text-green-600">
-            <span>+12% from last month</span>
-          </div>
-        </div>
-
-        <div className="bg-white rounded-xl shadow-md p-6">
-          <div className="flex items-center">
-            <div className="p-3 rounded-lg bg-green-100 text-green-600">
-              <FiShoppingBag className="h-6 w-6" />
-            </div>
-            <div className="ml-4">
-              <h2 className="text-gray-500 text-sm">Avg. Orders per Customer</h2>
-              <p className="text-2xl font-bold">
-                {(customers.reduce((sum, customer) => sum + customer.orders, 0) / customers.length).toFixed(1)}
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div className="bg-white rounded-xl shadow-md p-6">
-          <div className="flex items-center">
-            <div className="p-3 rounded-lg bg-purple-100 text-purple-600">
-              <FiDollarSign className="h-6 w-6" />
-            </div>
-            <div className="ml-4">
-              <h2 className="text-gray-500 text-sm">Avg. Customer Value</h2>
-              <p className="text-2xl font-bold">
-                ${(customers.reduce((sum, customer) => sum + customer.totalSpent, 0) / customers.length).toFixed(2)}
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div className="bg-white rounded-xl shadow-md p-6">
-          <div className="flex items-center">
-            <div className="p-3 rounded-lg bg-orange-100 text-orange-600">
-              <FiCalendar className="h-6 w-6" />
-            </div>
-            <div className="ml-4">
-              <h2 className="text-gray-500 text-sm">New This Month</h2>
-              <p className="text-2xl font-bold">24</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
       {/* Customers Table */}
       <div className="bg-white rounded-xl shadow-md overflow-hidden">
         <table className="w-full">
           <thead className="bg-gray-50">
             <tr>
               <th className="p-4 text-left">Customer</th>
-              <th className="p-4 text-left">Contact</th>
-              <th className="p-4 text-left">Location</th>
-              <th className="p-4 text-left">Orders</th>
-              <th className="p-4 text-left">Total Spent</th>
-              <th className="p-4 text-left">Last Order</th>
+              <th className="p-4 text-left">Email</th>
+              <th className="p-4 text-left">Role</th>
+              <th className="p-4 text-left">Status</th>
               <th className="p-4 text-left">Actions</th>
             </tr>
           </thead>
           <tbody>
-            {filteredCustomers.map((customer) => (
-              <tr key={customer.id} className="border-t border-gray-200 hover:bg-gray-50">
-                <td className="p-4 font-medium">{customer.name}</td>
-                <td className="p-4">
-                  <div className="flex flex-col">
-                    <span className="text-sm text-gray-600">{customer.email}</span>
-                    <span className="text-xs text-gray-500">{customer.phone}</span>
-                  </div>
+            {filteredCustomers.map((c) => (
+              <tr key={c.id} className="border-t hover:bg-gray-50">
+                <td
+                  className="p-4 font-medium cursor-pointer text-indigo-600"
+                  onClick={() => setSelectedCustomer(c)}
+                >
+                  {c.name}
                 </td>
-                <td className="p-4">{customer.location}</td>
-                <td className="p-4">{customer.orders}</td>
-                <td className="p-4">${customer.totalSpent.toFixed(2)}</td>
-                <td className="p-4">{customer.lastOrder}</td>
+                <td className="p-4">{c.email}</td>
+                <td className="p-4">{c.role}</td>
                 <td className="p-4">
-                  <div className="flex space-x-2">
-                    <button 
-                      className="text-blue-600 hover:text-blue-800 p-1"
-                      onClick={() => handleViewCustomer(customer)}
-                    >
-                      <FiEdit />
-                    </button>
-                    <button className="text-red-600 hover:text-red-800 p-1">
-                      <FiTrash2 />
-                    </button>
-                  </div>
+                  <span
+                    className={`px-2 py-1 text-xs rounded-full ${
+                      c.isBlock
+                        ? "bg-red-100 text-red-700"
+                        : "bg-green-100 text-green-700"
+                    }`}
+                  >
+                    {c.isBlock ? "Blocked" : "Active"}
+                  </span>
+                </td>
+                <td className="p-4 flex space-x-2">
+                  <button
+                    onClick={() => handleDeleteCustomer(c.id)}
+                    className="text-red-600 hover:text-red-800"
+                  >
+                    <FiTrash2 />
+                  </button>
+                  <button
+                    onClick={() => toggleBlockCustomer(c)}
+                    className={`${
+                      c.isBlock
+                        ? "text-green-600 hover:text-green-800"
+                        : "text-gray-600 hover:text-gray-800"
+                    }`}
+                  >
+                    {c.isBlock ? <FiUnlock /> : <FiLock />}
+                  </button>
                 </td>
               </tr>
             ))}
@@ -252,41 +163,87 @@ const Customers = () => {
 
       {/* Customer Details Modal */}
       {selectedCustomer && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-white rounded-xl p-6 w-full max-w-2xl">
+        <div className="fixed inset-0 bg-black bg-opacity-40 flex justify-center items-center z-50">
+          <div className="bg-white rounded-xl p-6 w-full max-w-4xl max-h-[90vh] overflow-y-auto">
             <div className="flex justify-between items-center mb-6">
               <h2 className="text-2xl font-bold">Customer Details</h2>
-              <button onClick={handleCloseDetails} className="text-gray-500 hover:text-gray-700">
-                ✕
-              </button>
+              <button onClick={() => setSelectedCustomer(null)}>✕</button>
             </div>
-            
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {/* Personal Info */}
               <div>
-                <h3 className="text-lg font-semibold mb-2">Personal Information</h3>
-                <div className="space-y-2">
-                  <p><span className="font-medium">Name:</span> {selectedCustomer.name}</p>
-                  <p><span className="font-medium">Email:</span> {selectedCustomer.email}</p>
-                  <p><span className="font-medium">Phone:</span> {selectedCustomer.phone}</p>
-                  <p><span className="font-medium">Location:</span> {selectedCustomer.location}</p>
-                  <p><span className="font-medium">Member since:</span> {selectedCustomer.joinDate}</p>
-                </div>
+                <h3 className="font-semibold mb-2">Personal Info</h3>
+                <p>
+                  <strong>Name:</strong> {selectedCustomer.name}
+                </p>
+                <p>
+                  <strong>Email:</strong> {selectedCustomer.email}
+                </p>
+                <p>
+                  <strong>Role:</strong> {selectedCustomer.role}
+                </p>
+                <p>
+                  <strong>Status:</strong>{" "}
+                  {selectedCustomer.isBlock ? "Blocked" : "Active"}
+                </p>
+                <p>
+                  <strong>Joined:</strong>{" "}
+                  {new Date(selectedCustomer.created_at).toLocaleDateString()}
+                </p>
               </div>
-              
+
+              {/* Orders */}
               <div>
-                <h3 className="text-lg font-semibold mb-2">Order Statistics</h3>
-                <div className="space-y-2">
-                  <p><span className="font-medium">Total Orders:</span> {selectedCustomer.orders}</p>
-                  <p><span className="font-medium">Total Spent:</span> ${selectedCustomer.totalSpent.toFixed(2)}</p>
-                  <p><span className="font-medium">Average Order Value:</span> ${(selectedCustomer.totalSpent / selectedCustomer.orders).toFixed(2)}</p>
-                  <p><span className="font-medium">Last Order:</span> {selectedCustomer.lastOrder}</p>
-                </div>
+                <h3 className="font-semibold mb-2">Orders</h3>
+                {selectedCustomer.orders?.length > 0 ? (
+                  selectedCustomer.orders.map((o) => (
+                    <div
+                      key={o.id}
+                      className="border p-3 rounded-md mb-2 bg-gray-50"
+                    >
+                      <p>
+                        <strong>Order ID:</strong> {o.id}
+                      </p>
+                      <p>
+                        <strong>Status:</strong> {o.status}
+                      </p>
+                      <p>
+                        <strong>Total:</strong> ${o.totalAmount}
+                      </p>
+                      <p>
+                        <strong>Date:</strong>{" "}
+                        {new Date(o.orderDate).toLocaleString()}
+                      </p>
+                      <div className="mt-2">
+                        <h4 className="font-medium">Items:</h4>
+                        {o.cart.map((item, idx) => (
+                          <div
+                            key={idx}
+                            className="flex items-center space-x-2 border-b py-1"
+                          >
+                            <img
+                              src={item.image[0]}
+                              alt={item.name}
+                              className="w-12 h-12 object-cover rounded"
+                            />
+                            <div>
+                              <p>{item.name}</p>
+                              <p className="text-sm text-gray-600">
+                                Size: {item.size} | Qty: {item.quantity}
+                              </p>
+                              <p className="text-sm font-medium">
+                                ${item.price}
+                              </p>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  ))
+                ) : (
+                  <p className="text-gray-500">No orders found</p>
+                )}
               </div>
-            </div>
-            
-            <div className="mt-6 flex justify-end space-x-4">
-              <button className="px-4 py-2 border border-gray-300 rounded-lg">Send Email</button>
-              <button className="px-4 py-2 bg-indigo-600 text-white rounded-lg">View Order History</button>
             </div>
           </div>
         </div>
