@@ -17,7 +17,7 @@ import Navbar from "../components/Navbar";
 const UserRoutes = () => {
   return (
     <>
-      <Navbar/>
+      {/* <Navbar/> */}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/collection" element={<Collection/>} />

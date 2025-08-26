@@ -5,16 +5,20 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Login from "./pages/Login";
+import Home from "./pages/Home";
+import Navbar from "./components/Navbar";
 
 
 export default function App() {
   return (
     <>
       <ToastContainer position="top-center" autoClose={1000} />
+      <Navbar/>
       
       <Routes>  
-        {/* ✅ Public routes */}
-        <Route path="/login" element={<Login />} />
+        {/* Public routes */}
+        {/* <Route path="/login" element={<Login />} /> */}
+        <Route path="/" element={<Home/>}/>
 
         {/* USER SIDE (only for normal users) -----*/}
         <Route
