@@ -1,5 +1,6 @@
 import { createContext, useEffect, useState, useMemo } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 export const AuthContext = createContext();
 const API = "http://localhost:3000/users";
@@ -7,11 +8,14 @@ const API = "http://localhost:3000/users";
 export default function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
+  const navigate=useNavigate()
 
   // 🔹 Load user from localStorage on first mount
   useEffect(() => {
     const raw = localStorage.getItem("user");
-    if (raw) setUser(JSON.parse(raw));
+    if (raw) {
+      setUser(JSON.parse(raw));
+    }
     setLoading(false);
   }, []);
 
@@ -30,20 +34,20 @@ export default function AuthProvider({ children }) {
     if (exists.data.length) throw new Error("User already exists");
 
     const newUser = {
-      id: Date.now().toString(16), // simple unique id
+      id: Date.now().toString(16),
       name,
       email,
       password,
-      role: "user",    // default role
-      isBlock: false,  // not blocked by default
+      role: "user",
+      isBlock: false,
       cart: [],
       orders: [],
       wishlist: [],
-      created_at: new Date().toISOString()
+      created_at: new Date().toISOString(),
     };
 
     const res = await axios.post(API, newUser);
-    return res.data; // don't auto-login, ask user to login
+    return res.data; // don't auto-login
   };
 
   // --- Login ---
@@ -56,12 +60,10 @@ export default function AuthProvider({ children }) {
 
     const foundUser = res.data[0];
 
-    // ❌ Block check
     if (foundUser.isBlock) {
       throw new Error("Your account has been blocked. Contact admin.");
     }
 
-    // ✅ Save in both state and localStorage
     setUser(foundUser);
     localStorage.setItem("user", JSON.stringify(foundUser));
 
@@ -72,6 +74,7 @@ export default function AuthProvider({ children }) {
   const logout = () => {
     setUser(null);
     localStorage.removeItem("user");
+    navigate("/")
   };
 
   const value = useMemo(
@@ -79,5 +82,9 @@ export default function AuthProvider({ children }) {
     [user, loading]
   );
 
-  return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
+  return (
+    <AuthContext.Provider value={value}>
+      {loading ? <div>Loading...</div> : children}
+    </AuthContext.Provider>
+  );
 }

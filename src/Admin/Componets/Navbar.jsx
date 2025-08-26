@@ -2,7 +2,6 @@ import React, { useState, useContext, useEffect, useRef } from 'react';
 import { 
   FiBell, 
   FiMessageSquare, 
-  FiSearch, 
   FiLogOut, 
   FiUser, 
   FiSettings,
@@ -11,7 +10,6 @@ import {
   FiX
 } from 'react-icons/fi';
 import { AuthContext } from '../../context/AuthContext';
-import { Link } from 'react-router-dom';
 
 const AdminNavbar = ({ 
   toggleSidebar, 
@@ -23,7 +21,7 @@ const AdminNavbar = ({
   const [isProfileOpen, setIsProfileOpen] = useState(false);
   const [notificationsOpen, setNotificationsOpen] = useState(false);
   const [messagesOpen, setMessagesOpen] = useState(false);
-  const { logout } = useContext(AuthContext); 
+  const { logout, currentUser } = useContext(AuthContext); 
 
   // Refs for dropdowns
   const profileRef = useRef(null);
@@ -59,6 +57,9 @@ const AdminNavbar = ({
     setIsProfileOpen(false);
   };
 
+  // Get user data from props or context
+  const displayUser = userData || currentUser || {};
+
   return (
     <nav className="bg-white shadow-md py-3 px-6 flex items-center justify-between">
       {/* Left side */}
@@ -69,15 +70,6 @@ const AdminNavbar = ({
         >
           {isSidebarOpen ? <FiX size={20} /> : <FiMenu size={20} />}
         </button>
-        
-        <div className="relative hidden md:block">
-          <FiSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
-          <input
-            type="text"
-            placeholder="Search..."
-            className="pl-10 pr-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
-          />
-        </div>
       </div>
 
       {/* Right side */}
@@ -172,38 +164,35 @@ const AdminNavbar = ({
             }}
             className="flex items-center space-x-2 p-2 rounded-lg hover:bg-gray-100"
           >
-            {userData?.avatar ? (
-              <img src={userData.avatar} alt={userData.name} className="w-8 h-8 rounded-full object-cover" />
+            {displayUser?.avatar ? (
+              <img src={displayUser.avatar} alt={displayUser.name} className="w-8 h-8 rounded-full object-cover" />
             ) : (
               <div className="w-8 h-8 rounded-full bg-indigo-500 flex items-center justify-center text-white font-medium">
-                {userData?.name?.charAt(0) || 'U'}
+                {displayUser?.name?.charAt(0) || 'A'}
               </div>
             )}
-            <div className="hidden md:block text-left">
-              <p className="text-sm font-medium text-gray-800">{userData?.name || 'User'}</p>
-              <p className="text-xs text-gray-500 capitalize">{userData?.role || 'user'}</p>
+            <div className="text-left">
+              <p className="text-sm font-medium text-gray-800">{displayUser?.name || 'Admin User'}</p>
+              <p className="text-xs text-gray-500 capitalize">{displayUser?.role || 'admin'}</p>
             </div>
             <FiChevronDown className="text-gray-500" />
           </button>
           {isProfileOpen && (
             <div className="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-xl z-50 border border-gray-200 py-1">
               <div className="px-4 py-2 border-b border-gray-200">
-                <p className="text-sm font-medium text-gray-800">{userData?.name || 'User'}</p>
-                <p className="text-xs text-gray-500 truncate">{userData?.email || ''}</p>
+                <p className="text-sm font-medium text-gray-800">{displayUser?.name || 'Admin User'}</p>
+                <p className="text-xs text-gray-500 truncate">{displayUser?.email || 'admin@gmail.com.com'}</p>
               </div>
-              <a href="#" className="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+              {/* <a href="#" className="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
                 <FiUser className="mr-3" /> My Profile
               </a>
               <a href="#" className="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
                 <FiSettings className="mr-3" /> Settings
-              </a>
-              <div className="border-t border-gray-200"></div>
-              <Link to="/login"
+              </a> */}
+              <div
                 onClick={handleLogout}
-                className="w-full flex items-center px-4 py-2 text-sm text-red-600 hover:bg-gray-100"
-              >
-                <FiLogOut className="mr-3" /> Logout
-              </Link>
+                className="w-full flex items-center px-4 py-2 text-sm text-red-600 hover:bg-gray-100">
+                <FiLogOut className="mr-3" /> Logout</div>
             </div>
           )}
         </div>

@@ -10,13 +10,14 @@ import Orders from "../pages/Orders";
 import Settings from "../components/Settings";
 import Wishlist from "../pages/Wishlist";
 import ProtectedRoute from "../components/ProtectedRoute";
-import Navbar from "../components/Navbar";
 import Collection from "../pages/Collection ";
+import Notfound from "./notfound";
+import Navbar from "../components/Navbar";
 
 const UserRoutes = () => {
   return (
     <>
-      <Navbar />
+      <Navbar/>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/collection" element={<Collection/>} />
@@ -27,7 +28,7 @@ const UserRoutes = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/settings" element={<Settings />} />
         <Route path="/wishlist" element={<Wishlist />} />
-
+        <Route path="*" element={<Notfound/>}/>
         <Route
           path="/place-order"
           element={

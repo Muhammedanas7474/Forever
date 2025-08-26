@@ -6,10 +6,11 @@ import OurPolicy from '../components/OurPolicy'
 import NewsletterBox from '../components/NewsletterBox'
 import Navbar from '../components/Navbar'
 
+
 const Home = () => {
   return (
     <div>
-
+      
       <Hero/>
       <LatestCollection/>
       <BestSeller/>

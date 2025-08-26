@@ -3,35 +3,29 @@ import { Navigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 
 const ProtectedRoute = ({ children, adminOnly = false, userOnly = false }) => {
-  const { user, loading } = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
 
-  // 🔹 Wait until AuthContext finishes loading
-  if (loading) {
-    return <div className="flex items-center justify-center h-screen text-xl">
-      Checking session...
-    </div>;
-  }
-
-  // Not logged in
+  // If not logged in → go to login
   if (!user) {
     return <Navigate to="/login" replace />;
   }
 
-  // Blocked user
+  // If blocked user
   if (user.isBlock) {
     return <Navigate to="/blocked" replace />;
   }
 
-  // Admin-only routes
+  // ✅ Only admins allowed
   if (adminOnly && user.role !== "admin") {
-    return <Navigate to="/" replace />;
+    return <Navigate to="/" replace />; // send non-admins to home
   }
 
-  // User-only routes
-  if (userOnly && user.role === "admin") {
-    return <Navigate to="/admin" replace />;
+  // ✅ Only normal users allowed
+  if (userOnly && user.role !== "user") {
+    return <Navigate to="/admin" replace />; // send admins to admin dashboard
   }
 
+  // ✅ Allowed → render children
   return children;
 };
 

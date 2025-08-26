@@ -73,13 +73,11 @@ const Navbar = () => {
         </Link>
 
         <div className="group relative">
-          <Link to="/login">
             <img
               className="w-5 cursor-pointer"
               src={assets.profile_icon}
               alt=""
             />
-          </Link>
           <div className="group-hover:block hidden absolute right-0 pt-4 z-10">
             <div className="flex flex-col gap-2 w-40 py-3 px-5 bg-slate-100 text-gray-600 rounded">
               {user ? (

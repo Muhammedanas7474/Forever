@@ -4,16 +4,29 @@ import UserRoutes from "./routes/UserRouters";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import ProtectedRoute from "./components/ProtectedRoute";
+import Login from "./pages/Login";
+
 
 export default function App() {
   return (
     <>
-      <ToastContainer position="top-right" autoClose={3000} />
-      <Routes>
-        {/* public/user site */}
-        <Route path="/*" element={<UserRoutes />} />
+      <ToastContainer position="top-center" autoClose={1000} />
+      
+      <Routes>  
+        {/* ✅ Public routes */}
+        <Route path="/login" element={<Login />} />
 
-        {/* admin site (admin only) */}
+        {/* USER SIDE (only for normal users) -----*/}
+        <Route
+          path="/*"
+          element={
+            <ProtectedRoute userOnly={true}>
+              <UserRoutes />
+            </ProtectedRoute>
+          }
+        />
+
+        {/* ADMIN SIDE (only for admins) */}
         <Route
           path="/admin/*"
           element={

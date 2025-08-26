@@ -16,6 +16,16 @@ const Customers = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCustomer, setSelectedCustomer] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [showAddModal, setShowAddModal] = useState(false);
+  const [newCustomer, setNewCustomer] = useState({
+    name: "",
+    email: "",
+    role: "customer",
+    password: "",
+    isBlock: false,
+    created_at: new Date().toISOString(),
+    orders: [],
+  });
 
   // Fetch users
   const fetchCustomers = async () => {
@@ -71,6 +81,32 @@ const Customers = () => {
     }
   };
 
+  const handleAddCustomer = async () => {
+    if (!newCustomer.name || !newCustomer.email || !newCustomer.password) {
+      alert("Please fill in all required fields.");
+      return;
+    }
+    try {
+      await axios.post("http://localhost:3000/users", {
+        ...newCustomer,
+        id: `u${Date.now()}`, // generate simple unique ID
+      });
+      fetchCustomers();
+      setShowAddModal(false);
+      setNewCustomer({
+        name: "",
+        email: "",
+        role: "customer",
+        password: "",
+        isBlock: false,
+        created_at: new Date().toISOString(),
+        orders: [],
+      });
+    } catch (err) {
+      console.error("Error adding customer:", err);
+    }
+  };
+
   if (isLoading) {
     return (
       <div className="flex justify-center items-center h-64">
@@ -97,7 +133,10 @@ const Customers = () => {
               onChange={(e) => setSearchTerm(e.target.value)}
             />
           </div>
-          <button className="bg-indigo-600 text-white px-4 py-2 rounded-lg flex items-center">
+          <button
+            onClick={() => setShowAddModal(true)}
+            className="bg-indigo-600 text-white px-4 py-2 rounded-lg flex items-center"
+          >
             <FiPlus className="mr-2" /> Add Customer
           </button>
         </div>
@@ -243,6 +282,71 @@ const Customers = () => {
                 ) : (
                   <p className="text-gray-500">No orders found</p>
                 )}
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Add Customer Modal */}
+      {showAddModal && (
+        <div className="fixed inset-0 bg-black bg-opacity-40 flex justify-center items-center z-50">
+          <div className="bg-white rounded-xl p-6 w-full max-w-lg">
+            <div className="flex justify-between items-center mb-6">
+              <h2 className="text-xl font-bold">Add New Customer</h2>
+              <button onClick={() => setShowAddModal(false)}>✕</button>
+            </div>
+            <div className="space-y-4">
+              <input
+                type="text"
+                placeholder="Name"
+                className="w-full p-3 border rounded"
+                value={newCustomer.name}
+                onChange={(e) =>
+                  setNewCustomer({ ...newCustomer, name: e.target.value })
+                }
+              />
+              <input
+                type="email"
+                placeholder="Email"
+                className="w-full p-3 border rounded"
+                value={newCustomer.email}
+                onChange={(e) =>
+                  setNewCustomer({ ...newCustomer, email: e.target.value })
+                }
+              />
+              <input
+                type="password"
+                placeholder="Password"
+                className="w-full p-3 border rounded"
+                value={newCustomer.password}
+                onChange={(e) =>
+                  setNewCustomer({ ...newCustomer, password: e.target.value })
+                }
+              />
+              <select
+                className="w-full p-3 border rounded"
+                value={newCustomer.role}
+                onChange={(e) =>
+                  setNewCustomer({ ...newCustomer, role: e.target.value })
+                }
+              >
+                <option value="user">User</option>
+                <option value="admin">Admin</option>
+              </select>
+              <div className="flex justify-end space-x-3">
+                <button
+                  onClick={() => setShowAddModal(false)}
+                  className="px-4 py-2 bg-gray-400 text-white rounded"
+                >
+                  Cancel
+                </button>
+                <button
+                  onClick={handleAddCustomer}
+                  className="px-4 py-2 bg-indigo-600 text-white rounded"
+                >
+                  Add
+                </button>
               </div>
             </div>
           </div>

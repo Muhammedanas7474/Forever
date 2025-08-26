@@ -39,7 +39,7 @@ const ProductItem = ({ id, image, name, price }) => {
           )}
         </button>
 
-        {/* ✅ Safe image rendering */}
+      
         <img
           className="w-full h-110 object-cover group-hover:scale-105 transition ease-in-out"
           src={productImage}

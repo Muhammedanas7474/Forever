@@ -3,7 +3,7 @@
     {
       "id": "1",
       "name": "Admin User",
-      "email": "admin@barclayssportshub.com",
+      "email": "admin@gmail.com",
       "password": "admin123",
       "role": "admin",
       "isBlock": false,
@@ -33,7 +33,7 @@
       "email": "diyan@gmail.com",
       "password": "1234",
       "role": "user",
-      "isBlock": false,
+      "isBlock": true,
       "cart": [],
       "orders": [],
       "wishlist": [],
@@ -54,23 +54,10 @@
       "created_at": "2025-08-23T10:10:00Z"
     },
     {
-      "id": "198d10a33d9",
-      "name": "aimen",
-      "email": "aimen@gmail.com",
-      "password": "12345",
-      "role": "user",
-      "isBlock": false,
-      "cart": [],
-      "orders": [],
-      "wishlist": [],
-      "addresses": [],
-      "created_at": "2025-08-22T09:09:23.545Z"
-    },
-    {
       "id": "198db1402e8",
       "name": "user",
       "email": "user@gmail.com",
-      "password": "user@gmail.com",
+      "password": "user123",
       "role": "user",
       "isBlock": false,
       "cart": [],
@@ -104,7 +91,7 @@
           ],
           "paymentMethod": "cod",
           "totalAmount": 200,
-          "status": "shipped",
+          "status": "cancelled",
           "orderDate": "2025-08-24T07:57:43.945Z"
         },
         {
@@ -137,7 +124,7 @@
           ],
           "paymentMethod": "cod",
           "totalAmount": 260,
-          "status": "pending",
+          "status": "delivered",
           "orderDate": "2025-08-24T08:04:12.097Z"
         }
       ],
@@ -155,17 +142,139 @@
       "orders": [],
       "wishlist": [],
       "created_at": "2025-08-24T08:34:35.894Z"
+    },
+    {
+      "id": "198dfab9990",
+      "name": "finan",
+      "email": "finan@gmail.com",
+      "password": "finan@gmail.com",
+      "role": "user",
+      "isBlock": false,
+      "cart": [],
+      "orders": [
+        {
+          "id": "1756099409964",
+          "address": {
+            "firstName": "asdfghj",
+            "lastName": "sdfghjsdfg",
+            "email": "sdfgh@gmail.com",
+            "street": "sdfg",
+            "city": "dfgfer",
+            "state": "ertyujnhbgvfc",
+            "pincode": "678582",
+            "country": "ertyhgvfcd",
+            "phone": "9876236518"
+          },
+          "cart": [
+            {
+              "_id": "aaabb",
+              "name": "Men Slim Fit Relaxed Denim Jacket",
+              "size": "S",
+              "price": 230,
+              "quantity": 1,
+              "image": [
+                "https://image.hm.com/assets/hm/04/13/0413f5010ec537b8dc3c3e4779658e0b7c4ac7f3.jpg?imwidth=1536",
+                "https://image.hm.com/assets/hm/dd/60/dd60a3b085cf0be0b245527645715ae507e3a2ec.jpg?imwidth=1536",
+                "https://image.hm.com/assets/hm/c6/f2/c6f26e00d1681cc6a410cc954cc6eb1f84fcc2e8.jpg?imwidth=1536"
+              ]
+            },
+            {
+              "_id": "aaaaj",
+              "name": "Men Tapered Fit Flat-Front Trousers",
+              "size": "S",
+              "price": 110,
+              "quantity": 1,
+              "image": [
+                "https://image.hm.com/assets/hm/8b/f5/8bf50fac996abd2abc8008797704b21c93901318.jpg?imwidth=1536",
+                "https://image.hm.com/assets/hm/da/d5/dad57ec0d17e3dd8dc290f7699dde9ed31707bbc.jpg?imwidth=1536",
+                "https://image.hm.com/assets/hm/5b/c6/5bc6e51d932d6f6651a6983e4659f81285c242f4.jpg?imwidth=1536"
+              ]
+            },
+            {
+              "_id": "7beb",
+              "name": "Girls Round Neck Cotton Top",
+              "size": "S",
+              "price": 220,
+              "quantity": 1,
+              "image": [
+                "https://image.hm.com/assets/hm/48/a1/48a1985bbde60ab0b9bb8f59efbbf46ac4d69eac.jpg?imwidth=1536"
+              ]
+            }
+          ],
+          "paymentMethod": "cod",
+          "totalAmount": 560,
+          "status": "shipped",
+          "orderDate": "2025-08-25T05:23:29.964Z"
+        }
+      ],
+      "wishlist": [],
+      "created_at": "2025-08-25T05:20:21.904Z"
+    },
+    {
+      "id": "198dfe8aee4",
+      "name": "abc",
+      "email": "abc@gmail.com",
+      "password": "abc123",
+      "role": "user",
+      "isBlock": false,
+      "cart": [],
+      "orders": [
+        {
+          "id": "1756103387636",
+          "address": {
+            "firstName": "abc",
+            "lastName": "cd",
+            "email": "mj nhbg",
+            "street": "asfda",
+            "city": "sdsadasd",
+            "state": "adsd",
+            "pincode": "670703",
+            "country": "asdsa",
+            "phone": "877678654545"
+          },
+          "cart": [
+            {
+              "_id": "7beb",
+              "name": "Girls Round Neck Cotton Top",
+              "size": "S",
+              "price": 220,
+              "quantity": 5,
+              "image": [
+                "https://image.hm.com/assets/hm/48/a1/48a1985bbde60ab0b9bb8f59efbbf46ac4d69eac.jpg?imwidth=1536"
+              ]
+            }
+          ],
+          "paymentMethod": "cod",
+          "totalAmount": 1100,
+          "status": "shipped",
+          "orderDate": "2025-08-25T06:29:47.636Z"
+        }
+      ],
+      "wishlist": [],
+      "created_at": "2025-08-25T06:27:05.060Z"
     }
   ],
   "products": [
     {
+      "_id": "31ec",
       "name": "Women Round Neck Cotton Top",
-      "price": 100,
+      "description": "asdasdsadsad",
+      "price": 101,
+      "image": [
+        "https://image.hm.com/assets/hm/68/d8/68d8b3c499ef5790ffba833ec735695d8a59ab07.jpg?imwidth=1536",
+        "https://image.hm.com/assets/hm/52/49/524965227dc8fa160038e45d40b64c5c0fb9c272.jpg?imwidth=1536"
+      ],
+      "category": "women",
+      "subCategory": "top",
+      "sizes": [
+        "s"
+      ],
+      "bestseller": false,
       "stock": 100,
-      "_id": "f2f8"
+      "id": "31ec"
     },
     {
-      "_id": "aaaab",
+      "_id": "7bb3",
       "name": "Men Round Neck Pure Cotton T-shirt",
       "description": "Comfortable cotton t-shirt",
       "price": 200,
@@ -183,10 +292,11 @@
       ],
       "date": 20230814,
       "bestseller": true,
-      "id": "7bb3"
+      "stock": 70,
+      "id": "3b49"
     },
     {
-      "_id": "aaaac",
+      "_id": "7beb",
       "name": "Girls Round Neck Cotton Top",
       "description": "Cute cotton top for girls",
       "price": 220,
@@ -202,15 +312,17 @@
       ],
       "date": 20230813,
       "bestseller": true,
-      "id": "7beb"
+      "stock": 11,
+      "id": "62f3"
     },
     {
-      "_id": "aaaad",
+      "_id": "0f1e",
       "name": "Men Round Neck Pure Cotton T-shirt",
       "description": "Classic fit cotton t-shirt",
       "price": 110,
       "image": [
-        "./Images/products/p_img12.png"
+        "https://image.hm.com/assets/hm/55/2d/552d449a02aea76494329339e6a9180f288a4216.jpg?imwidth=1536",
+        "https://image.hm.com/assets/hm/ee/0c/ee0cc904ba302cdd4ade9723f73dc5b5facdf5d2.jpg?imwidth=1536"
       ],
       "category": "Men",
       "subCategory": "Topwear",
@@ -221,7 +333,8 @@
       ],
       "date": 20230812,
       "bestseller": true,
-      "id": "0f1e"
+      "stock": 9,
+      "id": "b6cb"
     },
     {
       "_id": "aaaae",
@@ -264,7 +377,7 @@
       "id": "3baf"
     },
     {
-      "_id": "aaaah",
+      "_id": "0ab4",
       "name": "Men Round Neck Pure Cotton T-shirt",
       "description": "Basic cotton t-shirt",
       "price": 140,
@@ -283,10 +396,11 @@
       ],
       "date": 20230808,
       "bestseller": false,
+      "stock": 20,
       "id": "0ab4"
     },
     {
-      "_id": "aaaai",
+      "_id": "2ff2",
       "name": "Girls Round Neck Cotton Top",
       "description": "Girls' everyday cotton top",
       "price": 100,
@@ -304,10 +418,11 @@
       ],
       "date": 20230807,
       "bestseller": false,
+      "stock": 80,
       "id": "2ff2"
     },
     {
-      "_id": "aaaaj",
+      "_id": "af76",
       "name": "Men Tapered Fit Flat-Front Trousers",
       "description": "Comfortable tapered trousers",
       "price": 110,
@@ -325,6 +440,7 @@
       ],
       "date": 20230806,
       "bestseller": false,
+      "stock": 0,
       "id": "af76"
     },
     {
@@ -443,7 +559,7 @@
       "id": "ca92"
     },
     {
-      "_id": "aaabb",
+      "_id": "9cb6",
       "name": "Men Slim Fit Relaxed Denim Jacket",
       "description": "Slim fit denim jacket",
       "price": 230,
@@ -461,11 +577,12 @@
         "XL"
       ],
       "date": 20230719,
-      "bestseller": false,
+      "bestseller": true,
+      "stock": 8,
       "id": "9cb6"
     },
     {
-      "_id": "aaabc",
+      "_id": "8bfd",
       "name": "Women Round Neck Cotton Top",
       "description": "Women's comfortable top",
       "price": 210,
@@ -484,6 +601,7 @@
       ],
       "date": 20230718,
       "bestseller": false,
+      "stock": 30,
       "id": "8bfd"
     },
     {
@@ -555,7 +673,7 @@
       "id": "6384"
     },
     {
-      "_id": "aaabi",
+      "_id": "a030",
       "name": "Women Zip-Front Relaxed Fit Jacket",
       "description": "Women's cozy jacket",
       "price": 240,
@@ -574,10 +692,11 @@
       ],
       "date": 20230712,
       "bestseller": false,
+      "stock": 34,
       "id": "a030"
     },
     {
-      "_id": "aaabm",
+      "_id": "e549",
       "name": "Men Printed Plain Cotton Shirt",
       "description": "Men's printed shirt",
       "price": 260,
@@ -597,6 +716,7 @@
       ],
       "date": 20230708,
       "bestseller": false,
+      "stock": 14,
       "id": "e549"
     },
     {
@@ -623,7 +743,7 @@
       "id": "ec86"
     },
     {
-      "_id": "aaabp",
+      "_id": "4673",
       "name": "Boy Round Neck Pure Cotton T-shirt",
       "description": "Boys' soft cotton t-shirt",
       "price": 300,
@@ -643,13 +763,14 @@
       ],
       "date": 20230705,
       "bestseller": false,
+      "stock": 90,
       "id": "4673"
     },
     {
-      "_id": "aaabr",
+      "_id": "b84c",
       "name": "Women Front Relaxed Fit Jacket",
       "description": "Women's fashionable jacket",
-      "price": 310,
+      "price": 300,
       "image": [
         "https://image.hm.com/assets/hm/91/1b/911b62b3fb5572ad956e53bb9d124561bd604a0a.jpg?imwidth=1536",
         "https://image.hm.com/assets/hm/f8/a8/f8a8a6cdc037e0d857370b8b12512dfd79a8e655.jpg?imwidth=1536",
@@ -666,53 +787,50 @@
       ],
       "date": 20230703,
       "bestseller": false,
-      "id": "b84c"
+      "stock": 6,
+      "id": "8030"
     },
     {
-      "_id": "4fce",
-      "name": "Men Jeans",
-      "price": 299,
-      "stock": 30,
-      "image": "https://image.hm.com/assets/hm/e1/34/e134f1aba4bd07a92625b0c75a9f7be87a38d827.jpg?imwidth=1536,https://image.hm.com/assets/hm/3b/9a/3b9abaea173f79e677c9fcca848ffd6ed981f315.jpg?imwidth=1536,https://image.hm.com/assets/hm/7a/81/7a812399b1b8caa5e3c93b04d969cccb26b6f053.jpg?imwidth=1536,https://image.hm.com/assets/hm/6c/50/6c50c4ade6570f7f28f85feddfb093118fcad25a.jpg?imwidth=1536",
-      "category": "Men",
-      "description": "Good Quality"
-    },
-    {
-      "id": "8ab2",
-      "_id": "p1756028040795",
-      "name": "product 2",
-      "description": "kjhgvc",
-      "price": 1234,
-      "image": [],
-      "category": "edfv",
-      "subCategory": "fgb",
-      "sizes": [
-        "s",
-        "m",
-        "l",
-        "xl"
-      ],
-      "date": 20250824,
-      "bestseller": true,
-      "stock": 345
-    },
-    {
-      "_id": "2003",
-      "name": "shirt",
-      "description": "good",
-      "price": 2345,
+      "id": "eff1",
+      "_id": "1756053826256",
+      "name": "Kinds jeans",
+      "description": "Kids jeans",
+      "price": 500,
       "image": [
-        "https://image.hm.com/assets/hm/4d/e6/4de6b47848ac1be736477889365841a530525463.jpg?imwidth=1536"
+        "https://image.hm.com/assets/hm/5e/8e/5e8e3b1044ec942159a59a7cf4536618e0da1f79.jpg?imwidth=1536",
+        "https://image.hm.com/assets/hm/a6/54/a654918f30137297825737b8a0c73b0b3113c83a.jpg?imwidth=1536",
+        "https://image.hm.com/assets/hm/f3/06/f3063d7f0c595a7ad13ca73c6f5be314e901432d.jpg?imwidth=1536"
       ],
-      "category": "fgh",
-      "subCategory": "jhg",
+      "category": "Kids",
+      "subCategory": "Bottom wear",
       "sizes": [
         "S",
         "M",
         "L"
       ],
-      "bestseller": false,
-      "stock": 345
+      "date": 20250824,
+      "bestseller": true,
+      "stock": 10
+    },
+    {
+      "id": "0cd3",
+      "_id": "1756192345223",
+      "name": "Shirt",
+      "description": "jvhcsdhjsddjkv dsv",
+      "price": 100,
+      "image": [
+        "https://image.hm.com/assets/hm/de/bd/debde7ca69060b5c3a4a53f3f301016ee673f01a.jpg?imwidth=1536"
+      ],
+      "category": "Men",
+      "subCategory": "Top wear",
+      "sizes": [
+        "S",
+        "M",
+        "L"
+      ],
+      "date": 20250826,
+      "bestseller": true,
+      "stock": 10
     }
   ]
 }
