@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import AdminRoutes from "./Admin/AdminRoutes";
 import UserRoutes from "./routes/UserRouters";
 import { ToastContainer } from "react-toastify";
@@ -8,19 +8,24 @@ import Login from "./pages/Login";
 import Home from "./pages/Home";
 import Navbar from "./components/Navbar";
 
-
 export default function App() {
+  const location = useLocation();
+
+  // Hide navbar if route starts with /admin
+  const hideNavbar = location.pathname.startsWith("/admin");
+
   return (
     <>
       <ToastContainer position="top-center" autoClose={1000} />
-      <Navbar/>
       
-      <Routes>  
+      {!hideNavbar && <Navbar />}  {/* Render Navbar only if not admin */}
+
+      <Routes>
         {/* Public routes */}
         {/* <Route path="/login" element={<Login />} /> */}
-        <Route path="/" element={<Home/>}/>
+        <Route path="/" element={<Home />} />
 
-        {/* USER SIDE (only for normal users) -----*/}
+        {/* USER SIDE (only for normal users) */}
         <Route
           path="/*"
           element={

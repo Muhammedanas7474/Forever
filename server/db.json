@@ -8,7 +8,109 @@
       "role": "admin",
       "isBlock": false,
       "cart": [],
-      "orders": [],
+      "orders": [
+        {
+          "id": "1758263235659",
+          "address": {
+            "firstName": "uhieuhids",
+            "lastName": "ds",
+            "email": "dsdsv",
+            "street": "dsvsd",
+            "city": "dvssdv",
+            "state": "dsv",
+            "pincode": "4344",
+            "country": "f s f",
+            "phone": "4343"
+          },
+          "cart": [
+            {
+              "_id": "7beb",
+              "name": "Girls Round Neck Cotton Top",
+              "size": "S",
+              "price": 220,
+              "quantity": 1,
+              "image": [
+                "https://image.hm.com/assets/hm/48/a1/48a1985bbde60ab0b9bb8f59efbbf46ac4d69eac.jpg?imwidth=1536"
+              ]
+            }
+          ],
+          "paymentMethod": "stripe",
+          "totalAmount": 220,
+          "status": "delivered",
+          "orderDate": "2025-09-19T06:27:15.659Z"
+        },
+        {
+          "id": "1758515668488",
+          "address": {
+            "firstName": "ja",
+            "lastName": "ss",
+            "email": "aa",
+            "street": "aa",
+            "city": "aa",
+            "state": "aa",
+            "pincode": "5678",
+            "country": "ajuja",
+            "phone": "6789"
+          },
+          "cart": [
+            {
+              "_id": "1756722105351",
+              "name": "T-shirt",
+              "size": "M",
+              "price": 100,
+              "quantity": 1,
+              "image": [
+                "https://image.hm.com/assets/hm/f1/69/f1694d06733a3b27de542a80a56d01fadd43cde3.jpg?imwidth=1536"
+              ]
+            },
+            {
+              "_id": "0f1e",
+              "name": "Men Round Neck Pure Cotton T-shirt",
+              "size": "M",
+              "price": 110,
+              "quantity": 1,
+              "image": [
+                "https://image.hm.com/assets/hm/55/2d/552d449a02aea76494329339e6a9180f288a4216.jpg?imwidth=1536",
+                "https://image.hm.com/assets/hm/ee/0c/ee0cc904ba302cdd4ade9723f73dc5b5facdf5d2.jpg?imwidth=1536"
+              ]
+            }
+          ],
+          "paymentMethod": "cod",
+          "totalAmount": 210,
+          "status": "cancelled",
+          "orderDate": "2025-09-22T04:34:28.488Z"
+        },
+        {
+          "id": "1759582194476",
+          "address": {
+            "firstName": "iuhasd",
+            "lastName": "acdasas",
+            "email": "daad",
+            "street": "eeeev",
+            "city": "dsveewwe",
+            "state": "tweewegw",
+            "pincode": "234",
+            "country": "eefef",
+            "phone": "243243"
+          },
+          "cart": [
+            {
+              "_id": "1756722105351",
+              "name": "T-shirt",
+              "size": "M",
+              "price": 100,
+              "quantity": 1,
+              "image": [
+                "https://image.hm.com/assets/hm/f1/69/f1694d06733a3b27de542a80a56d01fadd43cde3.jpg?imwidth=1536"
+              ]
+            }
+          ],
+          "paymentMethod": "stripe",
+          "totalAmount": 100,
+          "status": "pending",
+          "orderDate": "2025-10-04T12:49:54.476Z"
+        }
+      ],
       "wishlist": [],
       "addresses": [],
       "created_at": "2023-11-15",
@@ -22,7 +124,76 @@
       "role": "user",
       "isBlock": false,
       "cart": [],
-      "orders": [],
+      "orders": [
+        {
+          "id": "1756721401237",
+          "address": {
+            "firstName": "Anas",
+            "lastName": "Muhammed",
+            "email": "muhammmedanas247474@gmail.com",
+            "street": "calicut",
+            "city": "calicut",
+            "state": "kerala",
+            "pincode": "1234",
+            "country": "india",
+            "phone": "123456789"
+          },
+          "cart": [
+            {
+              "_id": "0ab4",
+              "name": "Men Round Neck Pure Cotton T-shirt",
+              "size": "M",
+              "price": 140,
+              "quantity": 1,
+              "image": [
+                "https://image.hm.com/assets/hm/d0/47/d047a59f10d335e2351218f2bb286be6fc0a94b4.jpg?imwidth=1536",
+                "https://image.hm.com/assets/hm/88/73/88730dddd4c8bd353b6f5936fa5d402e32efcca4.jpg?imwidth=1536",
+                "https://image.hm.com/assets/hm/bd/e4/bde4ef42f917ccb678c4ff1d218520ce2f10ff6d.jpg?imwidth=1536"
+              ]
+            },
+            {
+              "_id": "1756192345223",
+              "name": "Shirt",
+              "size": "L",
+              "price": 100,
+              "quantity": 1,
+              "image": [
+                "https://image.hm.com/assets/hm/de/bd/debde7ca69060b5c3a4a53f3f301016ee673f01a.jpg?imwidth=1536"
+              ]
+            },
+            {
+              "_id": "aaabn",
+              "name": "Men Slim Fit Relaxed Denim Jacket",
+              "size": "XL",
+              "price": 290,
+              "quantity": 1,
+              "image": [
+                "https://image.hm.com/assets/hm/e1/34/e134f1aba4bd07a92625b0c75a9f7be87a38d827.jpg?imwidth=1536",
+                "https://image.hm.com/assets/hm/3b/9a/3b9abaea173f79e677c9fcca848ffd6ed981f315.jpg?imwidth=1536",
+                "https://image.hm.com/assets/hm/7a/81/7a812399b1b8caa5e3c93b04d969cccb26b6f053.jpg?imwidth=1536",
+                "https://image.hm.com/assets/hm/6c/50/6c50c4ade6570f7f28f85feddfb093118fcad25a.jpg?imwidth=1536"
+              ]
+            },
+            {
+              "_id": "aaaap",
+              "name": "Girls Round Neck Cotton Top",
+              "size": "M",
+              "price": 170,
+              "quantity": 1,
+              "image": [
+                "https://image.hm.com/assets/hm/8e/b0/8eb02e328a681b6efc2ad2b884b4ae0e32ee5dae.jpg?imwidth=1536",
+                "https://image.hm.com/assets/hm/31/50/31501d6b546933f9c49ac34561ebf5275cb58a18.jpg?imwidth=1536",
+                "https://image.hm.com/assets/hm/08/4c/084c55f71521c1cfbe0e24252e994b7467f48ce7.jpg?imwidth=1536",
+                "https://image.hm.com/assets/hm/db/cb/dbcb9b7a792e24087bfcef94ae8ecc73c588dce5.jpg?imwidth=1536"
+              ]
+            }
+          ],
+          "paymentMethod": "razorpay",
+          "totalAmount": 700,
+          "status": "delivered",
+          "orderDate": "2025-09-01T10:10:01.237Z"
+        }
+      ],
       "wishlist": [],
       "addresses": [],
       "created_at": "2025-08-23T10:00:00Z"
@@ -91,7 +262,7 @@
           ],
           "paymentMethod": "cod",
           "totalAmount": 200,
-          "status": "cancelled",
+          "status": "delivered",
           "orderDate": "2025-08-24T07:57:43.945Z"
         },
         {
@@ -144,73 +315,6 @@
       "created_at": "2025-08-24T08:34:35.894Z"
     },
     {
-      "id": "198dfab9990",
-      "name": "finan",
-      "email": "finan@gmail.com",
-      "password": "finan@gmail.com",
-      "role": "user",
-      "isBlock": false,
-      "cart": [],
-      "orders": [
-        {
-          "id": "1756099409964",
-          "address": {
-            "firstName": "asdfghj",
-            "lastName": "sdfghjsdfg",
-            "email": "sdfgh@gmail.com",
-            "street": "sdfg",
-            "city": "dfgfer",
-            "state": "ertyujnhbgvfc",
-            "pincode": "678582",
-            "country": "ertyhgvfcd",
-            "phone": "9876236518"
-          },
-          "cart": [
-            {
-              "_id": "aaabb",
-              "name": "Men Slim Fit Relaxed Denim Jacket",
-              "size": "S",
-              "price": 230,
-              "quantity": 1,
-              "image": [
-                "https://image.hm.com/assets/hm/04/13/0413f5010ec537b8dc3c3e4779658e0b7c4ac7f3.jpg?imwidth=1536",
-                "https://image.hm.com/assets/hm/dd/60/dd60a3b085cf0be0b245527645715ae507e3a2ec.jpg?imwidth=1536",
-                "https://image.hm.com/assets/hm/c6/f2/c6f26e00d1681cc6a410cc954cc6eb1f84fcc2e8.jpg?imwidth=1536"
-              ]
-            },
-            {
-              "_id": "aaaaj",
-              "name": "Men Tapered Fit Flat-Front Trousers",
-              "size": "S",
-              "price": 110,
-              "quantity": 1,
-              "image": [
-                "https://image.hm.com/assets/hm/8b/f5/8bf50fac996abd2abc8008797704b21c93901318.jpg?imwidth=1536",
-                "https://image.hm.com/assets/hm/da/d5/dad57ec0d17e3dd8dc290f7699dde9ed31707bbc.jpg?imwidth=1536",
-                "https://image.hm.com/assets/hm/5b/c6/5bc6e51d932d6f6651a6983e4659f81285c242f4.jpg?imwidth=1536"
-              ]
-            },
-            {
-              "_id": "7beb",
-              "name": "Girls Round Neck Cotton Top",
-              "size": "S",
-              "price": 220,
-              "quantity": 1,
-              "image": [
-                "https://image.hm.com/assets/hm/48/a1/48a1985bbde60ab0b9bb8f59efbbf46ac4d69eac.jpg?imwidth=1536"
-              ]
-            }
-          ],
-          "paymentMethod": "cod",
-          "totalAmount": 560,
-          "status": "shipped",
-          "orderDate": "2025-08-25T05:23:29.964Z"
-        }
-      ],
-      "wishlist": [],
-      "created_at": "2025-08-25T05:20:21.904Z"
-    },
-    {
       "id": "198dfe8aee4",
       "name": "abc",
       "email": "abc@gmail.com",
@@ -252,27 +356,75 @@
       ],
       "wishlist": [],
       "created_at": "2025-08-25T06:27:05.060Z"
+    },
+    {
+      "id": "198eabdb322",
+      "name": "Anas",
+      "email": "anas@gmail.com",
+      "password": "anas123",
+      "role": "user",
+      "isBlock": false,
+      "cart": [],
+      "orders": [
+        {
+          "id": "1756285047891",
+          "address": {
+            "firstName": "Anas",
+            "lastName": "muhammed",
+            "email": "anas@gmail.com",
+            "street": "calicut",
+            "city": "calicut",
+            "state": "kerala",
+            "pincode": "00000",
+            "country": "india",
+            "phone": "1234576889"
+          },
+          "cart": [
+            {
+              "_id": "0f1e",
+              "name": "Men Round Neck Pure Cotton T-shirt",
+              "size": "M",
+              "price": 110,
+              "quantity": 1,
+              "image": [
+                "https://image.hm.com/assets/hm/55/2d/552d449a02aea76494329339e6a9180f288a4216.jpg?imwidth=1536",
+                "https://image.hm.com/assets/hm/ee/0c/ee0cc904ba302cdd4ade9723f73dc5b5facdf5d2.jpg?imwidth=1536"
+              ]
+            },
+            {
+              "_id": "7bb3",
+              "name": "Men Round Neck Pure Cotton T-shirt",
+              "size": "M",
+              "price": 200,
+              "quantity": 1,
+              "image": [
+                "https://image.hm.com/assets/hm/6f/4c/6f4c71f03fe1af62989167951943d5836205a10b.jpg?imwidth=1536",
+                "https://image.hm.com/assets/hm/f2/2e/f22eb12ad482725152ee2da2a0045ea559cdadea.jpg?imwidth=2160",
+                "https://image.hm.com/assets/hm/cb/a3/cba3e1420589ed8a2767df27aa4889dd8c6e4ebd.jpg?imwidth=2160"
+              ]
+            }
+          ],
+          "paymentMethod": "cod",
+          "totalAmount": 310,
+          "status": "cancelled",
+          "orderDate": "2025-08-27T08:57:27.891Z"
+        }
+      ],
+      "wishlist": [],
+      "created_at": "2025-08-27T08:55:57.474Z"
+    },
+    {
+      "id": "u1756722181840",
+      "name": "abc",
+      "email": "abc@gmail.com",
+      "role": "customer",
+      "password": "123456",
+      "isBlock": false,
+      "created_at": "2025-09-01T10:21:58.829Z",
+      "orders": []
     }
   ],
   "products": [
-    {
-      "_id": "31ec",
-      "name": "Women Round Neck Cotton Top",
-      "description": "asdasdsadsad",
-      "price": 101,
-      "image": [
-        "https://image.hm.com/assets/hm/68/d8/68d8b3c499ef5790ffba833ec735695d8a59ab07.jpg?imwidth=1536",
-        "https://image.hm.com/assets/hm/52/49/524965227dc8fa160038e45d40b64c5c0fb9c272.jpg?imwidth=1536"
-      ],
-      "category": "women",
-      "subCategory": "top",
-      "sizes": [
-        "s"
-      ],
-      "bestseller": false,
-      "stock": 100,
-      "id": "31ec"
-    },
     {
       "_id": "7bb3",
       "name": "Men Round Neck Pure Cotton T-shirt",
@@ -831,6 +983,26 @@
       "date": 20250826,
       "bestseller": true,
       "stock": 10
+    },
+    {
+      "id": "858d",
+      "_id": "1756722105351",
+      "name": "T-shirt",
+      "description": "Goog product",
+      "price": 100,
+      "image": [
+        "https://image.hm.com/assets/hm/f1/69/f1694d06733a3b27de542a80a56d01fadd43cde3.jpg?imwidth=1536"
+      ],
+      "category": "Men",
+      "subCategory": "Top-wear",
+      "sizes": [
+        "S",
+        "M",
+        "L"
+      ],
+      "date": 20250901,
+      "bestseller": true,
+      "stock": 20
     }
   ]
 }

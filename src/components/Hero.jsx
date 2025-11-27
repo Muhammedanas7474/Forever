@@ -46,7 +46,7 @@ const Hero = () => {
   };
 
   return (
-    <div className="relative w-full h-[500px] overflow-hidden border border-gray-200">
+    <div className="relative w-full h-[500px] overflow-hidden border border-gray-200 z-0 ">
       {/* Slides */}
       {heroSlides.map((slide, index) => (
         <div
