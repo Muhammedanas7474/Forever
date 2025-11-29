@@ -141,21 +141,23 @@ const Products = () => {
             </div>
           </div>
 
+         
+
           {/* Stock */}
           <div className="text-sm">
             <p
               className={`font-medium ${
-                product.stock > 10
+                product.stock_count > 10
                   ? "text-green-500"
-                  : product.stock > 0
+                  : product.stock_count > 0
                   ? "text-orange-500"
                   : "text-red-500"
               }`}
             >
-              {product.stock > 10
+              {product.stock_count > 10
                 ? "In Stock"
-                : product.stock > 0
-                ? `Only ${product.stock} left!`
+                : product.stock_count > 0
+                ? `Only ${product.stock_count} left!`
                 : "Out of Stock"}
             </p>
           </div>
@@ -163,14 +165,14 @@ const Products = () => {
           {/* Add to Cart */}
           <button
             onClick={handleAddToCart}
-            disabled={product.stock === 0}
+            disabled={product.stock_count === 0}
             className={`w-full md:w-auto px-8 py-3 rounded-xl shadow-md transition ${
-              product.stock === 0
+              product.stock_count === 0
                 ? "bg-gray-400 cursor-not-allowed"
                 : "bg-black text-white hover:bg-gray-800"
             }`}
           >
-            {product.stock === 0 ? "Out of Stock" : "Add to Cart"}
+            {product.stock_count === 0 ? "Out of Stock" : "Add to Cart"}
           </button>
 
           {/* Extra Info */}

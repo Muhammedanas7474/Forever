@@ -50,10 +50,10 @@ useEffect(() => {
   // -------------------------------
   // ADD TO CART FROM WISHLIST
   // -------------------------------
-  const handleAddToCart = (productId, e) => {
-    e.preventDefault();
-    addToCart(productId, "M", 1); // default size
-  };
+  // const handleAddToCart = (productId, e) => {
+  //   e.preventDefault();
+  //   addToCart(productId, "M", 1); // default size
+  // };
 
   // -------------------------------
   // Get Product Image

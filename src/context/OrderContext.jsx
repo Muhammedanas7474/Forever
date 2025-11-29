@@ -18,27 +18,41 @@ export const OrderProvider = ({ children }) => {
     },
     
     createCODOrder: async () => {
-      const res = await api.post("order/", {
-        payment_method: "cod"
-      });
+      const res = await api.post(
+        "order/",
+        { payment_method: "cod" },
+        { withCredentials: true }
+      );
       return res.data;
     },
-    
+
     createRazorpayOrder: async () => {
-      const res = await api.post("order/razorpay/create/");
+      const res = await api.post(
+        "order/razorpay/create/",
+        {},
+        { withCredentials: true }
+      );
       return res.data;
     },
-    
+
     verifyRazorpayPayment: async (paymentData) => {
-      const res = await api.post("order/razorpay/verify/", paymentData);
+      const res = await api.post(
+        "order/razorpay/verify/",
+        paymentData,
+        { withCredentials: true }
+      );
       return res.data;
     },
-    
+
     cancelOrder: async (order_id) => {
-      const res = await api.patch(`order/${order_id}/cancel/`);
+      const res = await api.patch(
+        `order/${order_id}/cancel/`,
+        {},
+        { withCredentials: true }
+      );
       return res.data;
     }
-  };
+  }; // Added missing closing brace for orderAPI
 
   useEffect(() => {
     if (user) loadOrders();
@@ -52,6 +66,7 @@ export const OrderProvider = ({ children }) => {
       setOrders(data);
     } catch (err) {
       console.error("Error loading orders:", err);
+      toast.error("Failed to load orders");
     } finally {
       setLoading(false);
     }
@@ -67,11 +82,12 @@ export const OrderProvider = ({ children }) => {
     try {
       const order = await orderAPI.createCODOrder();
       toast.success("COD Order placed successfully!");
-      loadOrders();
+      await loadOrders(); // Added await to ensure orders are reloaded
       return order;
     } catch (err) {
       console.error("COD Order error:", err);
-      toast.error("Failed to place COD order");
+      const errorMessage = err.response?.data?.message || "Failed to place COD order";
+      toast.error(errorMessage);
       throw err;
     }
   };
@@ -88,7 +104,8 @@ export const OrderProvider = ({ children }) => {
       return razorpayData;
     } catch (err) {
       console.error("Razorpay order creation error:", err);
-      toast.error("Failed to create Razorpay order");
+      const errorMessage = err.response?.data?.message || "Failed to create Razorpay order";
+      toast.error(errorMessage);
       throw err;
     }
   };
@@ -98,11 +115,12 @@ export const OrderProvider = ({ children }) => {
     try {
       const order = await orderAPI.verifyRazorpayPayment(paymentData);
       toast.success("Payment successful! Order placed.");
-      loadOrders();
+      await loadOrders(); // Added await to ensure orders are reloaded
       return order;
     } catch (err) {
       console.error("Razorpay verification error:", err);
-      toast.error("Payment verification failed");
+      const errorMessage = err.response?.data?.message || "Payment verification failed";
+      toast.error(errorMessage);
       throw err;
     }
   };
@@ -111,10 +129,12 @@ export const OrderProvider = ({ children }) => {
     try {
       await orderAPI.cancelOrder(order_id);
       toast.info("Order cancelled");
-      loadOrders();
+      await loadOrders(); // Added await to ensure orders are reloaded
     } catch (err) {
       console.error(err);
-      toast.error("Failed to cancel order");
+      const errorMessage = err.response?.data?.message || "Failed to cancel order";
+      toast.error(errorMessage);
+      throw err; // Added throw to handle error in calling component
     }
   };
 
@@ -132,9 +152,21 @@ export const OrderProvider = ({ children }) => {
         return { color: "bg-green-500", text: "Delivered" };
       case "cancelled":
         return { color: "bg-red-500", text: "Cancelled" };
+      case "refunded":
+        return { color: "bg-orange-500", text: "Refunded" };
       default:
         return { color: "bg-gray-500", text: status };
     }
+  };
+
+  // Helper function to get order by ID
+  const getOrderById = (orderId) => {
+    return orders.find(order => order.id === orderId || order._id === orderId);
+  };
+
+  // Helper function to get orders by status
+  const getOrdersByStatus = (status) => {
+    return orders.filter(order => order.status === status);
   };
 
   return (
@@ -148,6 +180,8 @@ export const OrderProvider = ({ children }) => {
         verifyRazorpayPayment,
         cancelOrder,
         getStatusDisplay,
+        getOrderById, // Added helper function
+        getOrdersByStatus, // Added helper function
       }}
     >
       {children}

@@ -14,6 +14,10 @@ const Cart = () => {
   const { user } = useContext(AuthContext);
   const currency = "$";
 
+  // ✅ ADD DEBUG CONSOLE LOG
+  console.log("Full cart data:", cart);
+  console.log("First item details:", cart[0]);
+
   // Get first product image
   const getImage = (images) => {
     if (Array.isArray(images) && images.length > 0) {
@@ -59,21 +63,29 @@ const Cart = () => {
               <div className="flex items-start gap-6">
                 <img
                   className="w-16 sm:w-20"
-                  src={getImage(item.product.images)}
-                  alt={item.product.name}
+                  src={getImage(item.product?.images)}
+                  alt={item.product?.name}
                 />
 
                 <div>
-                  <p className="text-xs sm:text-lg font-medium">{item.product.name}</p>
+                  <p className="text-xs sm:text-lg font-medium">
+                    {item.product?.name || "Product name not available"}
+                  </p>
 
                   <div className="flex items-center gap-5 mt-2">
                     <p>
                       {currency}
-                      {item.product.price}
+                      {item.product?.price || "N/A"}
                     </p>
+                    {/* ✅ SIZE DISPLAY - Add fallback */}
                     <p className="px-2 sm:px-3 sm:py-1 border bg-slate-50">
-                      {item.size}
+                      {item.size ? `Size: ${item.size}` : "Size: Not specified"}
                     </p>
+                  </div>
+                  
+                  {/* ✅ ADD DEBUG INFO FOR THIS ITEM */}
+                  <div className="text-xs text-gray-500 mt-1">
+                    Item ID: {item.id} | Size in data: "{item.size}"
                   </div>
                 </div>
               </div>
@@ -83,15 +95,13 @@ const Cart = () => {
                 className="border max-w-10 sm:max-w-20 px-2 py-1"
                 type="number"
                 min={1}
-                value={item.quantity}     // controlled input
+                value={item.quantity}
                 onChange={(e) => {
                   const q = Number(e.target.value);
-
                   if (Number.isNaN(q) || q <= 0) return;
-                  updateCartQuantity(item.id, q);   // item.id = CART ITEM ID
+                  updateCartQuantity(item.id, q);
                 }}
               />
-
 
               {/* REMOVE ITEM */}
               <img

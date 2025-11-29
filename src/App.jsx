@@ -4,7 +4,6 @@ import UserRoutes from "./routes/UserRouters";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import ProtectedRoute from "./components/ProtectedRoute";
-import Login from "./pages/Login";
 import Home from "./pages/Home";
 import Navbar from "./components/Navbar";
 
@@ -16,16 +15,15 @@ export default function App() {
 
   return (
     <>
-      <ToastContainer position="top-center" autoClose={1000} />
-      
-      {!hideNavbar && <Navbar />}  {/* Render Navbar only if not admin */}
+      <ToastContainer position="top-center" autoClose={1500} />
+
+      {!hideNavbar && <Navbar />}
 
       <Routes>
-        {/* Public routes */}
-        {/* <Route path="/login" element={<Login />} /> */}
+        {/* PUBLIC ROUTE */}
         <Route path="/" element={<Home />} />
 
-        {/* USER SIDE (only for normal users) */}
+        {/* USER ROUTES */}
         <Route
           path="/*"
           element={
@@ -35,7 +33,7 @@ export default function App() {
           }
         />
 
-        {/* ADMIN SIDE (only for admins) */}
+        {/* ADMIN ROUTES */}
         <Route
           path="/admin/*"
           element={

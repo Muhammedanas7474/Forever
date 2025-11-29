@@ -13,8 +13,8 @@ const Collection = () => {
   const [subCategory, setSubcategory] = useState([]);
   const [sortType, setSortType] = useState("relavent");
 
-  const [search, setSearch] = useState("");      // Added: for searching
-  const [enableSearch, setEnableSearch] = useState(false); // toggle
+  const [search, setSearch] = useState("");      
+  const [enableSearch, setEnableSearch] = useState(false); 
 
   // CATEGORY FILTER HANDLER
   const toggleCategory = (e) => {
@@ -213,7 +213,7 @@ const Collection = () => {
                 id={item.id}
                 name={item.name}
                 price={item.price}
-                image={item.images}   // updated
+                image={item.images}   
               />
             ))
           ) : (

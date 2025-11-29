@@ -9,6 +9,8 @@ import { AuthContext } from "../context/AuthContext";
 import { assets } from "../../public/Images/products/assets";
 import { FaRegHeart } from "react-icons/fa";
 
+
+
 const Navbar = () => {
   const [visible, setVisible] = useState(false);
 
@@ -73,6 +75,8 @@ const Navbar = () => {
           src={assets.search_icon}
           className="w-5 cursor-pointer"
         />
+        
+      
 
         {/* Wishlist */}
         <Link to="/wishlist" className="relative">

@@ -1,18 +1,17 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { AuthContext } from "./AuthContext";
-import api from "../../api";   // adjust path if needed
+import api from "../../api";
 import { toast } from "react-toastify";
 
 export const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
   const { user } = useContext(AuthContext);
-
   const [cart, setCart] = useState([]); 
   const [loading, setLoading] = useState(false);
 
   // ─────────────────────────────
-  // 📌 Cart API Inside One File
+  // 📌 CORRECTED Cart API - Match your backend URLs
   // ─────────────────────────────
   const cartAPI = {
     getCart: async () => {
@@ -22,18 +21,21 @@ export const CartProvider = ({ children }) => {
 
     addToCart: async (product_id, size, quantity = 1) => {
       const payload = { product_id, size, quantity };
-      const res = await api.post("cart/add/", payload);
+      // ✅ Use the correct endpoint that matches your backend
+      const res = await api.post("cart/", payload);
       return res.data;
     },
 
-    updateCart: async (cart_id, quantity) => {
+    updateCart: async (item_id, quantity) => {
       const payload = { quantity };
-      const res = await api.put(`cart/update/${cart_id}/`, payload);
+      // ✅ Use cart/item/{item_id}/ for updates
+      const res = await api.put(`cart/item/${item_id}/`, payload);
       return res.data;
     },
 
-    deleteCart: async (cart_id) => {
-      const res = await api.delete(`cart/delete/${cart_id}/`);
+    deleteCart: async (item_id) => {
+      // ✅ Use cart/item/{item_id}/ for deletion
+      const res = await api.delete(`cart/item/${item_id}/`);
       return res.data;
     }
   };
@@ -67,9 +69,9 @@ export const CartProvider = ({ children }) => {
     try {
       await cartAPI.addToCart(product_id, size, quantity);
       toast.success("Added to cart");
-      loadCart();
+      loadCart(); // Reload cart to get updated data with size
     } catch (err) {
-      console.error(err);
+      console.error("Add to cart error:", err.response?.data || err.message);
       toast.error("Add to cart failed");
     }
   };
@@ -77,9 +79,9 @@ export const CartProvider = ({ children }) => {
   // ─────────────────────────────────────────────
   // 🔁 Update Quantity
   // ─────────────────────────────────────────────
-  const updateCartQuantity = async (cart_id, quantity) => {
+  const updateCartQuantity = async (item_id, quantity) => {
     try {
-      await cartAPI.updateCart(cart_id, quantity);
+      await cartAPI.updateCart(item_id, quantity);
       loadCart();
     } catch (err) {
       console.error(err);
@@ -90,9 +92,9 @@ export const CartProvider = ({ children }) => {
   // ─────────────────────────────────────────────
   // ❌ Remove Item
   // ─────────────────────────────────────────────
-  const removeFromCart = async (cart_id) => {
+  const removeFromCart = async (item_id) => {
     try {
-      await cartAPI.deleteCart(cart_id);
+      await cartAPI.deleteCart(item_id);
       toast.info("Item removed");
       loadCart();
     } catch (err) {
@@ -113,14 +115,14 @@ export const CartProvider = ({ children }) => {
   // ─────────────────────────────────────────────
   const getCartTotal = () => {
     return cart.reduce(
-      (sum, item) => sum + item.product.price * item.quantity,
+      (sum, item) => sum + (item.product?.price || 0) * item.quantity,
       0
     );
   };
+
   const clearCart = () => {
-  setCart([]);
-  localStorage.removeItem('cart'); // if you're using localStorage
-};
+    setCart([]);
+  };
 
   return (
     <CartContext.Provider
