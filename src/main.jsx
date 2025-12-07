@@ -8,6 +8,7 @@ import { CartProvider } from "./context/Cartcontext.jsx";
 import { WishlistProvider } from "./context/Wishlistcontext.jsx";
 import { ProductProvider } from "./context/Productcontext.jsx";
 import { OrderProvider } from "./context/OrderContext.jsx";
+import { AdminProvider } from "./context/AdminContext.jsx";
 
 
 
@@ -18,9 +19,9 @@ createRoot(document.getElementById("root")).render(
         <CartProvider>
           <WishlistProvider>
             <OrderProvider>
-              
-                <App />
-             
+              <AdminProvider>
+                <App />  
+              </AdminProvider>
             </OrderProvider>
           </WishlistProvider>
         </CartProvider>
@@ -28,3 +29,4 @@ createRoot(document.getElementById("root")).render(
     </AuthProvider>
   </BrowserRouter>
 );
+

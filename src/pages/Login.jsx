@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
@@ -9,15 +9,24 @@ const Login = () => {
   const [serverError, setServerError] = useState("");
   const { user, register, login, loading } = useContext(AuthContext);
   const navigate = useNavigate();
+  const location = useLocation();
+  
+  // Get the redirect location from state or default
+  const from = location.state?.from || "/";
 
   // Redirect if user is already logged in
   useEffect(() => {
     if (user) {
-      navigate("/", { replace: true });
+      if (user.role === "admin") {
+        navigate("/admin/dashboard", { replace: true });
+      } else {
+        navigate("/");
+      }
     }
-  }, [user, navigate]);
+  }, [user?.role]);
 
-  // Validation schema - UPDATED FOR YOUR BACKEND
+
+  // Validation schema
   const validationSchema = Yup.object().shape({
     username: Yup.string()
       .min(3, "Username must be at least 3 characters")
@@ -32,7 +41,6 @@ const Login = () => {
     password: Yup.string()
       .min(6, "Password must be at least 6 characters")
       .required("Password is required"),
-    // Remove password2 validation for login, keep for signup
     ...(currentState === "Sign Up" && {
       password2: Yup.string()
         .oneOf([Yup.ref('password'), null], 'Passwords must match')
@@ -48,12 +56,13 @@ const Login = () => {
     password2: "",
   };
 
-  // Submit handler - UPDATED FOR COOKIE AUTH
+  // Submit handler - FIXED
   const handleSubmit = async (values, { setSubmitting, resetForm, setFieldError }) => {
     setServerError("");
     
     try {
       if (currentState === "Sign Up") {
+        // Registration - your register function might not return success property
         await register({
           username: values.username,
           email: values.email,
@@ -61,19 +70,21 @@ const Login = () => {
           password2: values.password2,
         });
 
+        // If register doesn't throw error, it's successful
         alert("Registration successful! Please log in.");
         setCurrentState("Login");
         resetForm();
+        
       } else {
-        // For login, use identifier (can be username or email)
+        // Login - FIXED: Don't expect result.success, just check if login doesn't throw error
         await login({
-          username: values.username, // This can be username or email per your backend
+          username: values.username,
           password: values.password,
         });
-
-        // Login successful - user will be redirected by the useEffect
-        alert("Login successful!");
-        // No need to manually navigate, useEffect will handle it
+        
+        // If login doesn't throw error, it's successful
+        // The redirect will happen in useEffect when user state updates
+        console.log("Login successful");
       }
     } catch (err) {
       console.error("Form submission error:", err);
@@ -260,5 +271,3 @@ const Login = () => {
 };
 
 export default Login;
-
-

@@ -1,27 +1,40 @@
 import { createContext, useEffect, useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import api from "../../api";
+import authApi from "../../api";
 
 export const AuthContext = createContext();
 
 export default function AuthProvider({ children }) {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState(() => {
+    const savedUser = localStorage.getItem("user");
+    return savedUser ? JSON.parse(savedUser) : null;
+  });
+
   const [loading, setLoading] = useState(true);
+  const [isAdmin, setIsAdmin] = useState(false);
+
   const navigate = useNavigate();
 
-  // Check login session (cookie based)
   const checkAuth = async () => {
     try {
-      const response = await api.get("user/", { withCredentials: true });
+      const res = await authApi.get("user/"); // Reads token from cookies
 
-      if (response.data) {
-        setUser(response.data);
+      setUser(res.data);
+      setIsAdmin(res.data.role === "admin");
+      localStorage.setItem("user", JSON.stringify(res.data));
+
+    } catch (error) {
+      console.log("Auth check failed, restoring from localStorage...");
+
+      const savedUser = localStorage.getItem("user");
+      if (savedUser) {
+        const parsed = JSON.parse(savedUser);
+        setUser(parsed);
+        setIsAdmin(parsed.role === "admin");
       } else {
         setUser(null);
+        setIsAdmin(false);
       }
-    } catch (error) {
-      console.error("Auth check failed:", error);
-      setUser(null);
     } finally {
       setLoading(false);
     }
@@ -31,78 +44,43 @@ export default function AuthProvider({ children }) {
     checkAuth();
   }, []);
 
-  // REGISTER
-  const register = async ({ username, email, password, password2 }) => {
-    try {
-      const res = await api.post(
-        "register/",
-        { username, email, password, password2 },
-        { withCredentials: true }
-      );
-      return res.data;
-    } catch (err) {
-      console.error("Registration error:", err);
-      const errorData = err.response?.data;
-      let errorMessage = "Registration failed";
-
-      if (errorData) {
-        if (typeof errorData === "string") {
-          errorMessage = errorData;
-        } else {
-          const errorMessages = [];
-          Object.keys(errorData).forEach((field) => {
-            const value = errorData[field];
-            if (Array.isArray(value)) errorMessages.push(`${field}: ${value.join(", ")}`);
-            else if (typeof value === "string") errorMessages.push(`${field}: ${value}`);
-          });
-          if (errorMessages.length > 0) errorMessage = errorMessages.join(", ");
-        }
-      }
-
-      throw new Error(errorMessage);
-    }
-  };
-
-  // LOGIN - FIXED
   const login = async ({ username, password }) => {
     try {
-      console.log("Logging in user:", username);
+      const res = await authApi.post("login/", { username, password });
 
-      const res = await api.post(
-        "login/",
-        { username, password },
-        { withCredentials: true }
-      );
+      const updatedUser = {
+        ...res.data.user,
+        role: res.data.user.role || "user",
+      };
 
-      if (res.data.user) {
-        setUser(res.data.user);
-        return res.data.user;
-      }
+      setUser(updatedUser);
+      setIsAdmin(updatedUser.role === "admin");
+      localStorage.setItem("user", JSON.stringify(updatedUser));
+      localStorage.setItem("access_token", res.data.access_token);
+
+      return { success: true };
     } catch (err) {
       console.error("Login error:", err);
-      const errorData = err.response?.data;
-
-      let errorMessage = "Invalid username or password";
-
-      if (errorData?.error) errorMessage = errorData.error;
-      else if (err.response?.status === 401) errorMessage = "Invalid credentials";
-      else if (err.message.includes("Network Error"))
-        errorMessage = "Backend server not reachable";
-
-      throw new Error(errorMessage);
+      throw err;
     }
   };
 
-  // LOGOUT
   const logout = async () => {
     try {
-      await api.post("logout/", {}, { withCredentials: true });
+      await authApi.post("logout/", {});
     } catch (err) {
       console.log("Logout API error:", err);
     } finally {
       setUser(null);
+      setIsAdmin(false);
+      localStorage.removeItem("user");
+      localStorage.removeItem("access_token");
       navigate("/");
     }
+  };
+
+  const register = async (data) => {
+    return authApi.post("register/", data);
   };
 
   const value = useMemo(
@@ -113,15 +91,16 @@ export default function AuthProvider({ children }) {
       login,
       logout,
       checkAuth,
+      isAdmin,
     }),
-    [user, loading]
+    [user, loading, isAdmin]
   );
 
   return (
     <AuthContext.Provider value={value}>
       {loading ? (
         <div className="flex justify-center items-center min-h-screen">
-          <div className="text-lg">Loading...</div>
+          <h2>Loading...</h2>
         </div>
       ) : (
         children
