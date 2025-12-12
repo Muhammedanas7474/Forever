@@ -1,3 +1,6 @@
+// services/adminApi.js
+import axios from "axios";
+
 const adminApi = axios.create({
   baseURL: "https://forever-e-com.duckdns.org/api/v1/admin/",
   headers: {
