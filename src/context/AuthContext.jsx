@@ -47,6 +47,7 @@ export default function AuthProvider({ children }) {
   const login = async ({ username, password }) => {
     try {
       const res = await authApi.post("login/", { username, password });
+      console.log("Login response:", res.data);
 
       const updatedUser = {
         ...res.data.user,
