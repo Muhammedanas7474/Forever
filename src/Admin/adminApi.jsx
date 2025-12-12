@@ -2,7 +2,7 @@
 import axios from "axios";
 
 const adminApi = axios.create({
-  baseURL: "http://localhost:8000/api/v1/admin/",
+  baseURL: "https://forever-e-com.duckdns.org/api/v1/admin/", 
   headers: {
     "Content-Type": "application/json",
     Accept: "application/json",
